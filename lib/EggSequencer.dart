@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:nmscompanions/Item.dart';
+import "stateWidget.dart";
 
 class EggSequencer extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class EggSequencer extends StatefulWidget {
 class _EggSequencerState extends State<EggSequencer> {
   @override
   Widget build(BuildContext context) {
+    final attributeStatus = InheritedItemData.of(context).status.attributeStatus;
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
@@ -31,10 +33,10 @@ class _EggSequencerState extends State<EggSequencer> {
           children: [
             GeneticInputRow(),
             RowDivider(),
-            CatalystsRow(),
+            CatalystsRow(attributeStatus[ItemSlot.GROWTH_HORMONE][1], attributeStatus[ItemSlot.GENE_SPLITTER][1],
+                attributeStatus[ItemSlot.DYE_INJECTOR][1], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][1]),
             RowDivider(),
             EmbryoStatusRow(),
-
           ],
         ),
       ),
@@ -55,7 +57,21 @@ class GeneticInputRow extends StatelessWidget {
   }
 }
 
-class CatalystsRow extends StatelessWidget {
+class CatalystsRow extends StatefulWidget {
+
+  final int growthHormoneDose;
+  final int geneSplitterDose;
+  final int dyeInjectorDose;
+  final int neuralCalibratorDose;
+
+  CatalystsRow(this.growthHormoneDose, this.geneSplitterDose, this.dyeInjectorDose, this.neuralCalibratorDose);
+
+  @override
+  _CatalystsRowState createState() => _CatalystsRowState();
+}
+
+class _CatalystsRowState extends State<CatalystsRow> {
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -66,58 +82,16 @@ class CatalystsRow extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            CatalystsItem("Growth Hormone", 22, "Item", "assets/sampleItem.png", ItemSlot.GROWTH_HORMONE),
-            CatalystsItem("Gene Splitter", 22, "Item", "assets/sampleItem.png", ItemSlot.GENE_SPLITTER),
-            CatalystsItem("Dye Injector", 22, "Item", "assets/sampleItem.png", ItemSlot.DYE_INJECTOR),
-            CatalystsItem("Neural Calibrator", 22, "Item", "assets/sampleItem.png", ItemSlot.NEURAL_CALIBRATOR)
+            CatalystsItem("Growth Hormone", widget.growthHormoneDose, "Item", "assets/sampleItem.png", ItemSlot.GROWTH_HORMONE),
+            CatalystsItem("Gene Splitter", widget.geneSplitterDose, "Item", "assets/sampleItem.png", ItemSlot.GENE_SPLITTER),
+            CatalystsItem("Dye Injector", widget.dyeInjectorDose, "Item", "assets/sampleItem.png", ItemSlot.DYE_INJECTOR),
+            CatalystsItem("Neural Calibrator", widget.neuralCalibratorDose, "Item", "assets/sampleItem.png", ItemSlot.NEURAL_CALIBRATOR)
           ],
         ),
       ],
     );
   }
 }
-
-class EmbryoStatusRow extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    return Column(
-      children: [
-        Text("Embryo Status", style: textTheme.headline2),
-        SizedBox(height: 10,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            EmbryoItem("Increasing", "Weight / Height"),
-            EmbryoItem("Decreasing", "Anatomy"),
-            EmbryoItem("Increasing", "Colouring"),
-            EmbryoItem("Increasing", "Aggression"),
-          ],
-        )
-      ],
-    );
-  }
-}
-
-class EmbryoItem extends StatelessWidget {
-  final String status;
-  final IconData statusIcon;
-  final String attributeName;
-  EmbryoItem(this.status, this.attributeName) : statusIcon = (status == "Increasing") ? Icons.arrow_upward : Icons.arrow_downward;
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    return Column(
-      children: [
-        Text(attributeName, style: textTheme.subtitle1),
-        Icon(statusIcon, size: 50,),
-        Text(status, style: textTheme.subtitle1)
-      ],
-    );
-  }
-}
-
-
 
 class CatalystsItem extends StatelessWidget {
   final String type;
@@ -141,6 +115,71 @@ class CatalystsItem extends StatelessWidget {
     );
   }
 }
+
+class EmbryoStatusRow extends StatefulWidget {
+  @override
+  _EmbryoStatusRowState createState() => _EmbryoStatusRowState();
+}
+
+class _EmbryoStatusRowState extends State<EmbryoStatusRow> {
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Column(
+      children: [
+        Text("Embryo Status", style: textTheme.headline2),
+        SizedBox(height: 10,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            EmbryoItem(ItemStatus.INCREASING, "Weight / Height"),
+            EmbryoItem(ItemStatus.UNSTABLE, "Anatomy"),
+            EmbryoItem(ItemStatus.UNSTABLE, "Colouring"),
+            EmbryoItem(ItemStatus.DECREASING, "Aggression"),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class EmbryoItem extends StatelessWidget {
+  final ItemStatus itemStatus;
+  String status;
+  Widget statusIcon;
+  final String attributeName;
+  EmbryoItem(this.itemStatus, this.attributeName){
+    if(itemStatus == ItemStatus.INCREASING){
+      statusIcon = Icon(Icons.trending_up_rounded, color: Colors.greenAccent[400], size: 50,);
+      status = "Increasing";
+    } else if(itemStatus == ItemStatus.DECREASING){
+      statusIcon = Icon(Icons.trending_down_rounded, color: Colors.red, size: 50,);
+      status = "Decreasing";
+    } else {
+      statusIcon = Icon(Icons.multitrack_audio_rounded, color: Colors.blue[300], size: 50,);
+      status = "Unstable";
+    }
+
+  }
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Column(
+      children: [
+        Text(attributeName, style: textTheme.subtitle1),
+        statusIcon,
+        Text(status, style: textTheme.subtitle1)
+      ],
+    );
+  }
+}
+
+
+
+
 
 class RowDivider extends StatelessWidget {
   @override

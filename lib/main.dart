@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:nmscompanions/EggSequencer.dart';
 import 'ItemMenu.dart';
+import "stateWidget.dart";
 
-void main() => runApp(new MaterialApp(
+void main() => runApp(InheritedItemData(
+  child: new MaterialApp(
   routes: {
     "/" : (context) => EggSequencer(),
     "/ItemMenu" : (context) => ItemMenu(),
@@ -11,6 +13,8 @@ void main() => runApp(new MaterialApp(
   initialRoute: "/",
 
   theme: ThemeData(
+    primaryColor: Colors.cyan[900],
+    accentColor: Color.fromARGB(255, 217, 241, 241),
     textTheme: TextTheme(
       headline1: TextStyle(
         color: Color.fromARGB(255, 217, 241, 241),
@@ -32,7 +36,11 @@ void main() => runApp(new MaterialApp(
       subtitle1: TextStyle(
         color: Color.fromARGB(255, 217, 241, 241),
         fontSize: 11
+      ),
+      subtitle2: TextStyle(
+        color: Color.fromARGB(255, 217, 241, 241),
+        fontSize: 16
       )
     )
   ),
-));
+)));
