@@ -35,7 +35,7 @@ class Status {
   Status() : attributeStatus = {ItemSlot.GROWTH_HORMONE: [ItemStatus.INCREASING, 0],
     ItemSlot.GENE_SPLITTER: [ItemStatus.UNSTABLE, 0],
     ItemSlot.DYE_INJECTOR: [ItemStatus.UNSTABLE, 0],
-    ItemSlot.NEURAL_CALIBRATOR: [ItemStatus.DECREASING, 0]};
+    ItemSlot.NEURAL_CALIBRATOR: [ItemStatus.DECREASING, 0, "Aggression"]};
 
 
   void setAttrStatus(ItemSlot itemSlot, ItemStatus itemStatus){
@@ -44,6 +44,10 @@ class Status {
 
   void setAttrDose(ItemSlot itemSlot, int dose){
     attributeStatus[itemSlot][1] = dose;
+  }
+
+  void setNeuralAttribute(String attribute){
+    attributeStatus[ItemSlot.NEURAL_CALIBRATOR][2] = attribute;
   }
 
 }

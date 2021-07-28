@@ -4,7 +4,8 @@ class Item extends StatelessWidget {
   final String itemName;
   final String itemGraphicName;
   final ItemSlot itemSlot;
-  Item(this.itemName, this.itemGraphicName, this.itemSlot);
+  final callBack;
+  Item(this.itemName, this.itemGraphicName, this.itemSlot, this.callBack);
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -23,7 +24,10 @@ class Item extends StatelessWidget {
   }
 
   void openItemMenu(BuildContext context, ItemSlot itemSlot){
-    Navigator.pushNamed(context, "/ItemMenu", arguments: itemSlot);
+    Navigator.pushNamed(context, "/ItemMenu", arguments: itemSlot).then(
+            (_) {
+              callBack();
+            });
   }
 }
 

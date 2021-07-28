@@ -34,9 +34,10 @@ class _EggSequencerState extends State<EggSequencer> {
             GeneticInputRow(),
             RowDivider(),
             CatalystsRow(attributeStatus[ItemSlot.GROWTH_HORMONE][1], attributeStatus[ItemSlot.GENE_SPLITTER][1],
-                attributeStatus[ItemSlot.DYE_INJECTOR][1], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][1]),
+                attributeStatus[ItemSlot.DYE_INJECTOR][1], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][1], () => setState(() {})),
             RowDivider(),
-            EmbryoStatusRow(),
+            EmbryoStatusRow(attributeStatus[ItemSlot.GROWTH_HORMONE][0], attributeStatus[ItemSlot.GENE_SPLITTER][0],
+                attributeStatus[ItemSlot.DYE_INJECTOR][0], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][0], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][2]),
           ],
         ),
       ),
@@ -51,7 +52,7 @@ class GeneticInputRow extends StatelessWidget {
     return Column(
       children: [
         Text("Genetic Input", style: textTheme.headline2),
-        Item("Companion Egg", "assets/sampleItem.png", ItemSlot.COMPANION_EGG),
+        Item("Companion Egg", "assets/sampleItem.png", ItemSlot.COMPANION_EGG, () => null),
       ],
     );
   }
@@ -63,8 +64,9 @@ class CatalystsRow extends StatefulWidget {
   final int geneSplitterDose;
   final int dyeInjectorDose;
   final int neuralCalibratorDose;
+  final callback;
 
-  CatalystsRow(this.growthHormoneDose, this.geneSplitterDose, this.dyeInjectorDose, this.neuralCalibratorDose);
+  CatalystsRow(this.growthHormoneDose, this.geneSplitterDose, this.dyeInjectorDose, this.neuralCalibratorDose, this.callback);
 
   @override
   _CatalystsRowState createState() => _CatalystsRowState();
@@ -82,10 +84,10 @@ class _CatalystsRowState extends State<CatalystsRow> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            CatalystsItem("Growth Hormone", widget.growthHormoneDose, "Item", "assets/sampleItem.png", ItemSlot.GROWTH_HORMONE),
-            CatalystsItem("Gene Splitter", widget.geneSplitterDose, "Item", "assets/sampleItem.png", ItemSlot.GENE_SPLITTER),
-            CatalystsItem("Dye Injector", widget.dyeInjectorDose, "Item", "assets/sampleItem.png", ItemSlot.DYE_INJECTOR),
-            CatalystsItem("Neural Calibrator", widget.neuralCalibratorDose, "Item", "assets/sampleItem.png", ItemSlot.NEURAL_CALIBRATOR)
+            CatalystsItem("Growth Hormone", widget.growthHormoneDose, "Item", "assets/sampleItem.png", ItemSlot.GROWTH_HORMONE, widget.callback),
+            CatalystsItem("Gene Splitter", widget.geneSplitterDose, "Item", "assets/sampleItem.png", ItemSlot.GENE_SPLITTER, widget.callback),
+            CatalystsItem("Dye Injector", widget.dyeInjectorDose, "Item", "assets/sampleItem.png", ItemSlot.DYE_INJECTOR, widget.callback),
+            CatalystsItem("Neural Calibrator", widget.neuralCalibratorDose, "Item", "assets/sampleItem.png", ItemSlot.NEURAL_CALIBRATOR, widget.callback)
           ],
         ),
       ],
@@ -100,7 +102,8 @@ class CatalystsItem extends StatelessWidget {
   final ItemSlot itemSlot;
   final String itemGraphicName;
   final String doseText;
-  CatalystsItem(this.type, this.dose, this.itemName, this.itemGraphicName, this.itemSlot) :
+  final callBack;
+  CatalystsItem(this.type, this.dose, this.itemName, this.itemGraphicName, this.itemSlot, this.callBack) :
         doseText = (dose < 100) ? "Dose: $dose %" : "Overdosed! $dose %";
 
   @override
@@ -109,7 +112,7 @@ class CatalystsItem extends StatelessWidget {
     return Column(
       children: [
         Text(type, style: textTheme.subtitle1),
-        Item(itemName, itemGraphicName, itemSlot),
+        Item(itemName, itemGraphicName, itemSlot, callBack),
         Text(doseText, style: textTheme.subtitle1)
       ],
     );
@@ -117,6 +120,14 @@ class CatalystsItem extends StatelessWidget {
 }
 
 class EmbryoStatusRow extends StatefulWidget {
+  final weightHeightStatus;
+  final anatomyStatus;
+  final colouringStatus;
+  final neuralStatus;
+  final String neuralAttribute;
+
+  EmbryoStatusRow(this.weightHeightStatus, this.anatomyStatus, this.colouringStatus, this.neuralStatus, this.neuralAttribute);
+
   @override
   _EmbryoStatusRowState createState() => _EmbryoStatusRowState();
 }
@@ -132,10 +143,10 @@ class _EmbryoStatusRowState extends State<EmbryoStatusRow> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            EmbryoItem(ItemStatus.INCREASING, "Weight / Height"),
-            EmbryoItem(ItemStatus.UNSTABLE, "Anatomy"),
-            EmbryoItem(ItemStatus.UNSTABLE, "Colouring"),
-            EmbryoItem(ItemStatus.DECREASING, "Aggression"),
+            EmbryoItem(widget.weightHeightStatus, "Weight / Height"),
+            EmbryoItem(widget.anatomyStatus, "Anatomy"),
+            EmbryoItem(widget.colouringStatus, "Colouring"),
+            EmbryoItem(widget.neuralStatus, widget.neuralAttribute),
           ],
         )
       ],
@@ -148,6 +159,7 @@ class EmbryoItem extends StatelessWidget {
   String status;
   Widget statusIcon;
   final String attributeName;
+
   EmbryoItem(this.itemStatus, this.attributeName){
     if(itemStatus == ItemStatus.INCREASING){
       statusIcon = Icon(Icons.trending_up_rounded, color: Colors.greenAccent[400], size: 50,);
