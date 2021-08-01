@@ -37,7 +37,7 @@ class _EggSequencerState extends State<EggSequencer> {
                 attributeStatus[ItemSlot.DYE_INJECTOR][1], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][1], () => setState(() {})),
             RowDivider(),
             EmbryoStatusRow(attributeStatus[ItemSlot.GROWTH_HORMONE][0], attributeStatus[ItemSlot.GENE_SPLITTER][0],
-                attributeStatus[ItemSlot.DYE_INJECTOR][0], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][0], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][2]),
+                attributeStatus[ItemSlot.DYE_INJECTOR][0], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][0], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][3]),
           ],
         ),
       ),
@@ -60,10 +60,10 @@ class GeneticInputRow extends StatelessWidget {
 
 class CatalystsRow extends StatefulWidget {
 
-  final int growthHormoneDose;
-  final int geneSplitterDose;
-  final int dyeInjectorDose;
-  final int neuralCalibratorDose;
+  final String growthHormoneDose;
+  final String geneSplitterDose;
+  final String dyeInjectorDose;
+  final String neuralCalibratorDose;
   final callback;
 
   CatalystsRow(this.growthHormoneDose, this.geneSplitterDose, this.dyeInjectorDose, this.neuralCalibratorDose, this.callback);
@@ -77,6 +77,7 @@ class _CatalystsRowState extends State<CatalystsRow> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final attrStatus = InheritedItemData.of(context).status.attributeStatus;
     return Column(
       children: [
         Text("Catalysts", style: textTheme.headline2,),
@@ -84,10 +85,10 @@ class _CatalystsRowState extends State<CatalystsRow> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            CatalystsItem("Growth Hormone", widget.growthHormoneDose, "Item", "assets/sampleItem.png", ItemSlot.GROWTH_HORMONE, widget.callback),
-            CatalystsItem("Gene Splitter", widget.geneSplitterDose, "Item", "assets/sampleItem.png", ItemSlot.GENE_SPLITTER, widget.callback),
-            CatalystsItem("Dye Injector", widget.dyeInjectorDose, "Item", "assets/sampleItem.png", ItemSlot.DYE_INJECTOR, widget.callback),
-            CatalystsItem("Neural Calibrator", widget.neuralCalibratorDose, "Item", "assets/sampleItem.png", ItemSlot.NEURAL_CALIBRATOR, widget.callback)
+            Flexible(child: CatalystsItem("Growth Hormone", widget.growthHormoneDose, attrStatus[ItemSlot.GROWTH_HORMONE][2], "assets/sampleItem.png", ItemSlot.GROWTH_HORMONE, widget.callback)),
+            Flexible(child: CatalystsItem("Gene Splitter", widget.geneSplitterDose, attrStatus[ItemSlot.GENE_SPLITTER][2], "assets/sampleItem.png", ItemSlot.GENE_SPLITTER, widget.callback)),
+            Flexible(child: CatalystsItem("Dye Injector", widget.dyeInjectorDose, attrStatus[ItemSlot.DYE_INJECTOR][2], "assets/sampleItem.png", ItemSlot.DYE_INJECTOR, widget.callback)),
+            Flexible(child: CatalystsItem("Neural Calibrator", widget.neuralCalibratorDose, attrStatus[ItemSlot.NEURAL_CALIBRATOR][2], "assets/sampleItem.png", ItemSlot.NEURAL_CALIBRATOR, widget.callback))
           ],
         ),
       ],
@@ -97,14 +98,14 @@ class _CatalystsRowState extends State<CatalystsRow> {
 
 class CatalystsItem extends StatelessWidget {
   final String type;
-  final int dose;
+  final String dose;
   final String itemName;
   final ItemSlot itemSlot;
   final String itemGraphicName;
   final String doseText;
   final callBack;
   CatalystsItem(this.type, this.dose, this.itemName, this.itemGraphicName, this.itemSlot, this.callBack) :
-        doseText = (dose < 100) ? "Dose: $dose %" : "Overdosed! $dose %";
+        doseText = (double.parse(dose.replaceAll("%", "")) < 100.0) ? "Dose: $dose " : "Overdosed! $dose ";
 
   @override
   Widget build(BuildContext context) {

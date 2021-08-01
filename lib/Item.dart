@@ -14,7 +14,7 @@ class Item extends StatelessWidget {
       child: GestureDetector(
         child: Column(
           children: [
-            Text(itemName, style: textTheme.headline3),
+            Text(itemName, style: textTheme.subtitle1),
             Image.asset(itemGraphicName, scale: 3.5,),
           ],
         ),

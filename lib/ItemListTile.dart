@@ -6,7 +6,7 @@ import 'package:nmscompanions/Item.dart';
 class ItemListTile extends StatelessWidget {
   final Widget child;
   final String itemName;
-  final int dose;
+  final String dose;
   final ItemStatus itemEffect;
   final ItemSlot itemSlot;
   final String neuralAttribute;
@@ -20,13 +20,14 @@ class ItemListTile extends StatelessWidget {
     return GestureDetector(
       child: ListTile(
         title: Text(itemName, style: textTheme.headline3,),
-        subtitle: Text("Dose: $dose%", style: textTheme.subtitle2,),
+        subtitle: Text("Dose: $dose", style: textTheme.subtitle2,),
         leading: Image.asset("assets/sampleItem.png"),
         trailing: child
       ),
       onTap: () {
         itemStatus.setAttrStatus(itemSlot, itemEffect);
-        itemStatus.setAttrDose(itemSlot, 55);
+        itemStatus.setAttrDose(itemSlot, dose);
+        itemStatus.setItemName(itemSlot, itemName);
         if(itemSlot == ItemSlot.NEURAL_CALIBRATOR){
           itemStatus.setNeuralAttribute(neuralAttribute);
         }
