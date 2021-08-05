@@ -7,7 +7,10 @@ class GrowthHormoneInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (increasing) ? Icon(Icons.trending_up_rounded, color: Colors.lightGreen[400])
-        : Icon(Icons.trending_down_rounded, color: Colors.redAccent);
+    return Align(
+        child: (increasing) ? Icon(Icons.trending_up_rounded, color: Colors.lightGreen[400])
+        : Icon(Icons.trending_down_rounded, color: Colors.redAccent),
+      alignment: Alignment.centerRight,
+    );
   }
 }

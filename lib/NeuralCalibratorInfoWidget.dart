@@ -7,11 +7,14 @@ class NeuralCalibratorInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Column(
-      children: [
-        (increasing) ? Icon(Icons.trending_up_rounded, color: Colors.lightGreen[400]) : Icon(Icons.trending_down_rounded, color: Colors.redAccent,),
-        Text(attribute, style: textTheme.subtitle2,)
-      ],
+    return Align(
+      child: Column(
+        children: [
+          (increasing) ? Icon(Icons.trending_up_rounded, color: Colors.lightGreen[400]) : Icon(Icons.trending_down_rounded, color: Colors.redAccent,),
+          Text(attribute, style: textTheme.subtitle2,)
+        ],
+      ),
+      alignment: Alignment.centerRight,
     );
   }
 }

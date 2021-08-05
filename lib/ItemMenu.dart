@@ -45,8 +45,8 @@ class ItemMenu extends StatelessWidget {
           for (Map<String, dynamic> itemEntry in itemData.getGeneTable()) {
             itemWidgets.add(
               ItemListTile(
-                  child: Icon(Icons.multitrack_audio_rounded,
-                  color: Colors.blue[300]),
+                  child: Align(child: Icon(Icons.multitrack_audio_rounded,
+                  color: Colors.blue[300]), alignment: Alignment.centerRight,),
                   itemName: itemEntry["name"],
                   dose: itemEntry["dose"],
                   itemSlot: ItemSlot.GENE_SPLITTER,
@@ -56,40 +56,32 @@ class ItemMenu extends StatelessWidget {
         }
         break;
       case ItemSlot.DYE_INJECTOR : {
-        for (int x = 0; x < 10; x++){
+        for(Map<String, dynamic> entry in itemData.getDyeTable()){
           itemWidgets.add(
             ItemListTile(
-                child: DyeInjectorInfo("White, Red/White"),
-                itemName: "Test",
-                dose: "0",
-                itemSlot: ItemSlot.DYE_INJECTOR,
-                itemEffect: ItemStatus.DECREASING)
+                child: DyeInjectorInfo(entry["colour"]),
+                itemName: entry["name"],
+                dose: entry["dose"],
+                itemSlot: itemSlot,
+                itemEffect: ItemStatus.UNSTABLE,
+                colour: entry["colour"])
           );
         }
       }
       break;
       case ItemSlot.NEURAL_CALIBRATOR : {
-        for (int x = 0; x < 10; x++){
+        for(Map<String, dynamic> entry in itemData.getNeuralTable()){
           itemWidgets.add(
             ItemListTile(
-                child: NeuralCalibratorInfo(attribute: "Aggression", increasing: false,),
-                itemName: "Test",
-                dose: "0",
-                itemSlot: ItemSlot.NEURAL_CALIBRATOR,
-                itemEffect: ItemStatus.DECREASING,
-                neuralAttribute: "Aggression",)
-          );
-          itemWidgets.add(
-            ItemListTile(
-                child: NeuralCalibratorInfo(attribute: "Helpfulness", increasing: true),
-                itemName: "Test",
-                dose: "0",
-                itemSlot: ItemSlot.NEURAL_CALIBRATOR,
+                child: NeuralCalibratorInfo(attribute: entry["neuralAttribute"], increasing: true,),
+                itemName: entry["name"],
+                dose: entry["dose"],
+                itemSlot: itemSlot,
                 itemEffect: ItemStatus.INCREASING,
-                neuralAttribute: "Helpfulness",
-            )
+                neuralAttribute: entry["neuralAttribute"],)
           );
         }
+
       }
   }
 

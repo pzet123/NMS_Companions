@@ -18,7 +18,7 @@ class Item extends StatelessWidget {
             Image.asset(itemGraphicName, scale: 3.5,),
           ],
         ),
-        onTap: () => openItemMenu(context, itemSlot),
+        onTap: (callBack != null) ? () => openItemMenu(context, itemSlot) : null,
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:nmscompanions/EggSequencer.dart';
 import 'ItemMenu.dart';
 import "stateWidget.dart";
 import 'package:web_scraper/web_scraper.dart';
+import 'GuideScreen.dart';
 
 void main() async {
 
@@ -11,12 +12,20 @@ void main() async {
   List<Map<String, dynamic>> tableEntries = webScraper.getElement("div.main-container > div.resizable-container >"
       " div.page.has-right-rail > main.page__main > div#content.page-content > "
       "div#mw-content-text.mw-content-ltr > div.mw-parser-output > table.wikitable > tbody > tr", []);
+  List<Map<String, dynamic>> itemLinks = webScraper.getElement("div.main-container > div.resizable-container >"
+      " div.page.has-right-rail > main.page__main > div#content.page-content > "
+      "div#mw-content-text.mw-content-ltr > div.mw-parser-output > table.wikitable > tbody > tr > td > a", ["href"]);
+  print(itemLinks[0]["attributes"]["href"]);
+  await webScraper.loadWebPage(itemLinks[0]["attributes"]["href"]);
+
+
 
   runApp(InheritedItemData(
       child: new MaterialApp(
         routes: {
           "/": (context) => EggSequencer(),
           "/ItemMenu": (context) => ItemMenu(),
+          "/GuideScreen" : (context) => GuideScreen(),
           "/Donation": (context) => null
         },
         initialRoute: "/",

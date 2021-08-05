@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'stateWidget.dart';
 
 class DyeInjectorInfo extends StatelessWidget {
   final String colours;
@@ -6,6 +7,6 @@ class DyeInjectorInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Text("Dye Colours: " + colours, style: textTheme.subtitle2);
+    return Text(colours, style: textTheme.subtitle2);
   }
 }

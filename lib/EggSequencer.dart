@@ -15,10 +15,17 @@ class _EggSequencerState extends State<EggSequencer> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Egg Sequencer", style: textTheme.headline1,),
+        centerTitle: true,
         backgroundColor: Colors.cyan[900],
         elevation: 5,
-
+        leading: IconButton(
+          icon: Icon(Icons.help_rounded),
+          onPressed: () => {
+            Navigator.pushNamed(context, "/GuideScreen")
+          }
+        )
       ),
+
       body: Container(
         padding: EdgeInsets.all(10),
        decoration: BoxDecoration(
@@ -38,12 +45,31 @@ class _EggSequencerState extends State<EggSequencer> {
             RowDivider(),
             EmbryoStatusRow(attributeStatus[ItemSlot.GROWTH_HORMONE][0], attributeStatus[ItemSlot.GENE_SPLITTER][0],
                 attributeStatus[ItemSlot.DYE_INJECTOR][0], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][0], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][3]),
+            RowDivider(),
+            ColourRow(attributeStatus[ItemSlot.DYE_INJECTOR][3])
           ],
         ),
       ),
     );
   }
 }
+
+
+class ColourRow extends StatefulWidget {
+  final String colour;
+  ColourRow(this.colour);
+  @override
+  _ColourRowState createState() => _ColourRowState();
+}
+
+class _ColourRowState extends State<ColourRow> {
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Text("Current Colouring: " + widget.colour, style: textTheme.headline1,);
+  }
+}
+
 
 class GeneticInputRow extends StatelessWidget {
   @override
@@ -52,7 +78,7 @@ class GeneticInputRow extends StatelessWidget {
     return Column(
       children: [
         Text("Genetic Input", style: textTheme.headline2),
-        Item("Companion Egg", "assets/sampleItem.png", ItemSlot.COMPANION_EGG, () => null),
+        Item("Companion Egg", "assets/sampleItem.png", ItemSlot.COMPANION_EGG, null),
       ],
     );
   }
@@ -176,7 +202,6 @@ class EmbryoItem extends StatelessWidget {
   }
 
 
-
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -189,9 +214,6 @@ class EmbryoItem extends StatelessWidget {
     );
   }
 }
-
-
-
 
 
 class RowDivider extends StatelessWidget {
