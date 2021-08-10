@@ -1,0 +1,1 @@
+{"name":"Chlorine","increasing":true,"dose":"2%"}

@@ -1,0 +1,1 @@
+{"name":"Hadal Core","dose":"100%","colour":"Green, White"}

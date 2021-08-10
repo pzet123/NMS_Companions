@@ -47,7 +47,459 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/sampleItem.png
+    - assets/CompanionEgg.png
+    - assets/itemData/Apple Cake of Lost Souls/
+    - assets/itemData/Apple Curiosity/
+    - assets/itemData/Legs-in-Pastry/
+    - assets/itemData/Abyssal Stew/
+    - assets/itemData/Acid/
+    - assets/itemData/Activated Cadmium/
+    - assets/itemData/Activated Copper/
+    - assets/itemData/Activated Emeril/
+    - assets/itemData/Activated Indium/
+    - assets/itemData/Albumen Pearl/
+    - assets/itemData/Aloe Flesh/
+    - assets/itemData/Ammonia/
+    - assets/itemData/Angelic Fruitcake/
+    - assets/itemData/Anomalous Doughnut/
+    - assets/itemData/Anomalous Jam/
+    - assets/itemData/Anomalous Tart/
+    - assets/itemData/Antimatter/
+    - assets/itemData/Antimatter Housing/
+    - assets/itemData/Appalling Jam Sponge/
+    - assets/itemData/Aronium/
+    - assets/itemData/Baked Cheese Tart/
+    - assets/itemData/Baked Eggs/
+    - assets/itemData/Basalt/
+    - assets/itemData/Bittersweet Cocoa/
+    - assets/itemData/Bloody Organ/
+    - assets/itemData/Bone Butter/
+    - assets/itemData/Bone Cream/
+    - assets/itemData/Bone Milk/
+    - assets/itemData/Bone Nuggets/
+    - assets/itemData/Bread/
+    - assets/itemData/Briney Delight/
+    - assets/itemData/Bromide Salt/
+    - assets/itemData/Burning Jam Fluffer/
+    - assets/itemData/Burning Jam Surprise/
+    - assets/itemData/Cactus Flesh/
+    - assets/itemData/Cactus Jelly/
+    - assets/itemData/Cactus Nectar/
+    - assets/itemData/Cadmium/
+    - assets/itemData/Cake Batter/
+    - assets/itemData/Cake of Burning Dread/
+    - assets/itemData/Cake of Glass/
+    - assets/itemData/Cake of Sin/
+    - assets/itemData/Cake of the Lost/
+    - assets/itemData/Caramel Curiosity/
+    - assets/itemData/Caramel Doughnut/
+    - assets/itemData/Caramel Ice Cream/
+    - assets/itemData/Caramel-Encrusted Cake/
+    - assets/itemData/Caramelised Nightmare/
+    - assets/itemData/Carbon/
+    - assets/itemData/Carbon Crystal/
+    - assets/itemData/Carbon Nanotubes/
+    - assets/itemData/Cheese-and-Flesh Stew/
+    - assets/itemData/Cheesy Vegetable Pie/
+    - assets/itemData/Chewy ‘Dumpling’ Stew/
+    - assets/itemData/Chewy Organ Pie/
+    - assets/itemData/Chewy Wires/
+    - assets/itemData/Chloride Lattice/
+    - assets/itemData/Chlorine/
+    - assets/itemData/Chocolate Cake/
+    - assets/itemData/Chocolate Curiosity/
+    - assets/itemData/Chocolate Dream/
+    - assets/itemData/Chocolate Ice Cream/
+    - assets/itemData/Choking Monstrosity Cake/
+    - assets/itemData/Chromatic Metal/
+    - assets/itemData/Churned Butter/
+    - assets/itemData/Clarified Oil/
+    - assets/itemData/Cobalt/
+    - assets/itemData/Cobalt Mirror/
+    - assets/itemData/Cocoa Doughnut/
+    - assets/itemData/Cocoa Tart/
+    - assets/itemData/Comet Droplets/
+    - assets/itemData/Condensed Carbon/
+    - assets/itemData/Copper/
+    - assets/itemData/Crab Apple/
+    - assets/itemData/Cream/
+    - assets/itemData/Cream Buns/
+    - assets/itemData/Cream Curiosity/
+    - assets/itemData/Cream of Vegetable Soup/
+    - assets/itemData/Creamed Organ Soup/
+    - assets/itemData/Creamy Sauce/
+    - assets/itemData/Creamy Treat/
+    - assets/itemData/Creature Egg/
+    - assets/itemData/Creature Pellets/
+    - assets/itemData/Crunchy Caramel/
+    - assets/itemData/Crunchy Wings/
+    - assets/itemData/Cryo-Pump/
+    - assets/itemData/Cryogenic Chamber/
+    - assets/itemData/Crystal Flesh/
+    - assets/itemData/Crystal Fragment/
+    - assets/itemData/Crystal Sulphide/
+    - assets/itemData/Crystalline Soup/
+    - assets/itemData/Custard Curiosity/
+    - assets/itemData/Custard Doughnut/
+    - assets/itemData/Custard Fancy/
+    - assets/itemData/Custard Tart/
+    - assets/itemData/Cyto-Phosphate/
+    - assets/itemData/De-Scented Pheromone Bottle/
+    - assets/itemData/Deathly-Cold Ice Cream/
+    - assets/itemData/Decommissioned Circuit Board/
+    - assets/itemData/Decrypted User Data/
+    - assets/itemData/Delicate Meringue/
+    - assets/itemData/Delicious Vegetable Stew/
+    - assets/itemData/Destablised Sodium/
+    - assets/itemData/Deuterium/
+    - assets/itemData/Devilled Organs/
+    - assets/itemData/Di-hydrogen/
+    - assets/itemData/Di-hydrogen Jelly/
+    - assets/itemData/Dioxite/
+    - assets/itemData/Diplo Chunks/
+    - assets/itemData/Dirt/
+    - assets/itemData/Dirty Bronze/
+    - assets/itemData/Dirty Meat/
+    - assets/itemData/Doomed Cream Cake/
+    - assets/itemData/Dough/
+    - assets/itemData/Earthy Pie/
+    - assets/itemData/Emeril/
+    - assets/itemData/Enormous Metal Cog/
+    - assets/itemData/Enriched Carbon/
+    - assets/itemData/Enzyme Fluid/
+    - assets/itemData/Esophageal Surprise/
+    - assets/itemData/Ever-Boiling Cake/
+    - assets/itemData/Ever-Burning Jam/
+    - assets/itemData/Experimental Power Fluid/
+    - assets/itemData/Explosive Drones/
+    - assets/itemData/Extra-Fluffy Batter/
+    - assets/itemData/Extra-Fluffy Cream Cake/
+    - assets/itemData/Faecium/
+    - assets/itemData/Feline Liver/
+    - assets/itemData/Fermented Fruit/
+    - assets/itemData/Ferrite Dust/
+    - assets/itemData/Fibrous Stew/
+    - assets/itemData/Fiendish Roe/
+    - assets/itemData/Fiery Vegetable Stew/
+    - assets/itemData/Fire Water/
+    - assets/itemData/Fireberry/
+    - assets/itemData/Fish Pie/
+    - assets/itemData/Five Dimensional Torus/
+    - assets/itemData/Flavoursome Organs/
+    - assets/itemData/Flavoursome Sauce/
+    - assets/itemData/Fluffy Caramel Delight/
+    - assets/itemData/Fluffy Throatripper/
+    - assets/itemData/Foraged Mushrooms/
+    - assets/itemData/Fragmented Qualia/
+    - assets/itemData/Fresh Milk/
+    - assets/itemData/Frigate Fuel (100 Tonnes)/
+    - assets/itemData/Frigate Fuel (200 Tonnes)/
+    - assets/itemData/Frigate Fuel (50 Tonnes)/
+    - assets/itemData/Frost Crystal/
+    - assets/itemData/Frozen Tubers/
+    - assets/itemData/Fruity Ice Cream/
+    - assets/itemData/Fruity Pudding/
+    - assets/itemData/Fuel Oxidiser/
+    - assets/itemData/Fungal Mould/
+    - assets/itemData/Fungal Omelette/
+    - assets/itemData/Fungal Tart/
+    - assets/itemData/Furball Jelly/
+    - assets/itemData/Fusion Accelerant/
+    - assets/itemData/Fusion Core/
+    - assets/itemData/Fusion Ignitor/
+    - assets/itemData/Gamma Root/
+    - assets/itemData/GekNip/
+    - assets/itemData/Gelatinous Goop/
+    - assets/itemData/Geode/
+    - assets/itemData/Geodesite/
+    - assets/itemData/Giant Egg/
+    - assets/itemData/Glass/
+    - assets/itemData/Glass Grains/
+    - assets/itemData/Glittering Honey Cake/
+    - assets/itemData/Glowing Mineral/
+    - assets/itemData/Glowing Pie/
+    - assets/itemData/Gold/
+    - assets/itemData/Gold Nugget/
+    - assets/itemData/Gooey Butter/
+    - assets/itemData/Gooey Caramel Cake/
+    - assets/itemData/Gooey Chocolate Cake/
+    - assets/itemData/Gooey Custard Fancy/
+    - assets/itemData/Gooey Fruit Surprise/
+    - assets/itemData/Gooey Honey Puff/
+    - assets/itemData/Gooey Mouthburner/
+    - assets/itemData/Gooey ProtoButter/
+    - assets/itemData/Gooey ProtoDoughnut/
+    - assets/itemData/Gooey Screamer/
+    - assets/itemData/Grahberry/
+    - assets/itemData/Grahjam/
+    - assets/itemData/Grantine/
+    - assets/itemData/Gravitino Ball/
+    - assets/itemData/Gristle Pie/
+    - assets/itemData/Gritty Meat Pie/
+    - assets/itemData/Ground Meat/
+    - assets/itemData/Hadal Core/
+    - assets/itemData/Handful of Cogs/
+    - assets/itemData/Haunted Chocolate Dreams/
+    - assets/itemData/Heptaploid Wheat/
+    - assets/itemData/Herb-Encrusted Flesh/
+    - assets/itemData/Hermetic Seal/
+    - assets/itemData/Herox/
+    - assets/itemData/Hexaberry/
+    - assets/itemData/Hexite/
+    - assets/itemData/High Capacity Vector Compressor/
+    - assets/itemData/Holographic Analyser/
+    - assets/itemData/Holographic Crankshaft/
+    - assets/itemData/Honey Butter/
+    - assets/itemData/Honey Doughnut/
+    - assets/itemData/Honey Ice Cream/
+    - assets/itemData/Honey Tart/
+    - assets/itemData/Honey-Soaked Fancy/
+    - assets/itemData/Honeybutter Doughnut/
+    - assets/itemData/Honied Angel Cake/
+    - assets/itemData/Honied Proto-Cake/
+    - assets/itemData/Honied Throat-Sticker/
+    - assets/itemData/Horrifying Mush/
+    - assets/itemData/Horrifying, Gooey Delight/
+    - assets/itemData/Hot Ice/
+    - assets/itemData/Hydraulic Wiring/
+    - assets/itemData/Hydrothermal Fuel Cell/
+    - assets/itemData/Hypnotic Eye/
+    - assets/itemData/Ice Cream/
+    - assets/itemData/Iced Screams/
+    - assets/itemData/Icey Marrow/
+    - assets/itemData/Impulse Beans/
+    - assets/itemData/Indium/
+    - assets/itemData/Instability Injector/
+    - assets/itemData/Interstellar Curiosity/
+    - assets/itemData/Interstellar Fancy/
+    - assets/itemData/Ion Battery/
+    - assets/itemData/Ion Capacitor/
+    - assets/itemData/Ion Sphere/
+    - assets/itemData/Ionised Cobalt/
+    - assets/itemData/Iridesite/
+    - assets/itemData/Itching, Creeping Honey Sponge/
+    - assets/itemData/Jade Peas/
+    - assets/itemData/Jam Curiosity/
+    - assets/itemData/Jam Doughnut/
+    - assets/itemData/Jam Fluffer/
+    - assets/itemData/Jam Oozers/
+    - assets/itemData/Jam Tart/
+    - assets/itemData/Jellied Fur Tart/
+    - assets/itemData/Kelp Rice/
+    - assets/itemData/Kelp Sac/
+    - assets/itemData/Larval Core/
+    - assets/itemData/Latticed Sinew/
+    - assets/itemData/Leathery Tart/
+    - assets/itemData/Leg Meat/
+    - assets/itemData/Lemmium/
+    - assets/itemData/Leopard-Fruit/
+    - assets/itemData/Life Support Gel/
+    - assets/itemData/Liquid Explosive/
+    - assets/itemData/Living Pearl/
+    - assets/itemData/Living Glass/
+    - assets/itemData/Living Slime/
+    - assets/itemData/Lubricant/
+    - assets/itemData/Lumpen Doughnut/
+    - assets/itemData/Lumpy Brainstem/
+    - assets/itemData/Magnetic Resonator/
+    - assets/itemData/Magnetised Ferrite/
+    - assets/itemData/Magno-Gold/
+    - assets/itemData/Marrow Bulb/
+    - assets/itemData/Marrow Flesh/
+    - assets/itemData/Meat Flakes/
+    - assets/itemData/Meaty Chunks/
+    - assets/itemData/Meaty Wings/
+    - assets/itemData/Microprocessor/
+    - assets/itemData/Mind Control Device/
+    - assets/itemData/Mineral Compressor/
+    - assets/itemData/Monstrous Custard/
+    - assets/itemData/Monstrous Honey Cake/
+    - assets/itemData/Mordite/
+    - assets/itemData/Most Curious Cake/
+    - assets/itemData/Mushed Root Pie/
+    - assets/itemData/Mystery Meat Pie/
+    - assets/itemData/Mystery Meat Stew/
+    - assets/itemData/Nanotube Crate/
+    - assets/itemData/Navigation Data/
+    - assets/itemData/Neural Duct/
+    - assets/itemData/NipNip Buds/
+    - assets/itemData/Nitrogen/
+    - assets/itemData/Nitrogen Salt/
+    - assets/itemData/Non-Stick Piston/
+    - assets/itemData/Non-Toxic Mushroom/
+    - assets/itemData/Offal Sac/
+    - assets/itemData/Ohmic Gel/
+    - assets/itemData/Omelette/
+    - assets/itemData/Once-Useful Springs/
+    - assets/itemData/Optical Solvent/
+    - assets/itemData/Organic Piping/
+    - assets/itemData/Oxygen/
+    - assets/itemData/Oxygen Capsule/
+    - assets/itemData/Oxygen Filter/
+    - assets/itemData/Paraffinium/
+    - assets/itemData/Parasitic Omelette/
+    - assets/itemData/Partially-Liquid Cheese/
+    - assets/itemData/Pastry/
+    - assets/itemData/Perpetual Cake/
+    - assets/itemData/Perpetual Honeycake/
+    - assets/itemData/Perpetual Ice Cream/
+    - assets/itemData/Perpetual Jam Fluffer/
+    - assets/itemData/Pheromone Sac/
+    - assets/itemData/Phosphorus/
+    - assets/itemData/Pie Case/
+    - assets/itemData/Pilgrims Tonic/
+    - assets/itemData/Pilgrimberry/
+    - assets/itemData/Platinum/
+    - assets/itemData/Poly Fibre/
+    - assets/itemData/Prickly Curiosity/
+    - assets/itemData/Processed Meat/
+    - assets/itemData/Processed Sugar/
+    - assets/itemData/Projectile Ammunition/
+    - assets/itemData/Proteinous Doughnut/
+    - assets/itemData/Proto-Batter/
+    - assets/itemData/Proto-Beignet/
+    - assets/itemData/Proto-Butter/
+    - assets/itemData/Proto-Cream/
+    - assets/itemData/Proto-Oil/
+    - assets/itemData/Proto-Omelette/
+    - assets/itemData/Proto-Sausage Pie/
+    - assets/itemData/ProtoCheese/
+    - assets/itemData/ProtoSausage/
+    - assets/itemData/Pugneum/
+    - assets/itemData/Pulpy Roots/
+    - assets/itemData/Pure Ferrite/
+    - assets/itemData/Pyrite/
+    - assets/itemData/Quad Servo/
+    - assets/itemData/Quantum Accelerator/
+    - assets/itemData/Quantum Computer/
+    - assets/itemData/Quantum Processor/
+    - assets/itemData/Questionably Sweet Cake/
+    - assets/itemData/Radon/
+    - assets/itemData/Rare Metal Element/
+    - assets/itemData/Raw Steak/
+    - assets/itemData/Re-latticed Arc Crystal/
+    - assets/itemData/Recycled Circuitry/
+    - assets/itemData/Refined Flour/
+    - assets/itemData/Refreshing Drink/
+    - assets/itemData/Regis Grease/
+    - assets/itemData/Reinforced Piping/
+    - assets/itemData/Residual Goop/
+    - assets/itemData/Root Juice/
+    - assets/itemData/Runaway Mould/
+    - assets/itemData/Rusted Metal/
+    - assets/itemData/Sac Venom/
+    - assets/itemData/Salt/
+    - assets/itemData/Salt Refractor/
+    - assets/itemData/Salt-Laced Honey Cake/
+    - assets/itemData/Salty Custard/
+    - assets/itemData/Salty Doughnut/
+    - assets/itemData/Salty Fingers/
+    - assets/itemData/Salty Juice/
+    - assets/itemData/Salty Surprise/
+    - assets/itemData/Salvaged Data/
+    - assets/itemData/Scaly Meat/
+    - assets/itemData/Scented Herbs/
+    - assets/itemData/Scooped Innards/
+    - assets/itemData/Scorching Sauce/
+    - assets/itemData/Scrambled Marrow/
+    - assets/itemData/Self-Repairing Heridium/
+    - assets/itemData/Semiconductor/
+    - assets/itemData/Sievert Beans/
+    - assets/itemData/Silicate Powder/
+    - assets/itemData/Silicon Egg/
+    - assets/itemData/Silver/
+    - assets/itemData/Six-Pronged Mesh Decoupler/
+    - assets/itemData/Smoked Meat/
+    - assets/itemData/Smokey Meat Pie/
+    - assets/itemData/Sodium/
+    - assets/itemData/Sodium Diode/
+    - assets/itemData/Sodium Nitrate/
+    - assets/itemData/Soft Custard Fancy/
+    - assets/itemData/Soft and Spiky Surprise/
+    - assets/itemData/Soiled Soup/
+    - assets/itemData/Solanium/
+    - assets/itemData/Solar Mirror/
+    - assets/itemData/Solartillo/
+    - assets/itemData/Solidified Grease Pie/
+    - assets/itemData/Spark Canister/
+    - assets/itemData/Spiced Apple Cake/
+    - assets/itemData/Spiced Ice/
+    - assets/itemData/Spicy Fleshballs/
+    - assets/itemData/Spikey Tart/
+    - assets/itemData/Spool of Nano-Cables/
+    - assets/itemData/Star Bulb/
+    - assets/itemData/Star Silk/
+    - assets/itemData/Starbirth Delight/
+    - assets/itemData/Starshield Battery/
+    - assets/itemData/Starship AI Valves/
+    - assets/itemData/Startling Fancy/
+    - assets/itemData/Stellar Custard/
+    - assets/itemData/Stellar Custard Tart/
+    - assets/itemData/Stellar Ice Cream/
+    - assets/itemData/Stewed Organs/
+    - assets/itemData/Sticky Honey/
+    - assets/itemData/Storm Crystal/
+    - assets/itemData/Strider Sausage/
+    - assets/itemData/Subatomic Regulators/
+    - assets/itemData/Sulphurine/
+    - assets/itemData/Superconductor/
+    - assets/itemData/Superoxide Crystal/
+    - assets/itemData/Sweet Cream Dreams/
+    - assets/itemData/Sweetened Butter/
+    - assets/itemData/Sweetened Compost/
+    - assets/itemData/Sweetened Proto-Butter/
+    - assets/itemData/Sweetroot/
+    - assets/itemData/Synthetic Honey/
+    - assets/itemData/Synthetic Worms/
+    - assets/itemData/Tainted Metal/
+    - assets/itemData/Tall Eggs/
+    - assets/itemData/Tangy Cheese/
+    - assets/itemData/Tangy Organ Surprise/
+    - assets/itemData/Tangy Vegetable Stew/
+    - assets/itemData/TetraCobalt/
+    - assets/itemData/The Pie Of Knowledge/
+    - assets/itemData/The Spawning Tart/
+    - assets/itemData/The Stellarator/
+    - assets/itemData/Thermal Panels/
+    - assets/itemData/Thermic Condensate/
+    - assets/itemData/Thick Meat Stew/
+    - assets/itemData/Thick, Sweet Batter/
+    - assets/itemData/Tortured Honey Cake/
+    - assets/itemData/Traditional Cake/
+    - assets/itemData/Tritium/
+    - assets/itemData/Tritium Hypercluster/
+    - assets/itemData/Unbound Cream Horn/
+    - assets/itemData/Unbound Monstrosity/
+    - assets/itemData/Unrefined Pyrite Grease/
+    - assets/itemData/Unsolvable Jam Turnover/
+    - assets/itemData/Unstable Gel/
+    - assets/itemData/Unstable Plasma/
+    - assets/itemData/Uranium/
+    - assets/itemData/Very Thick Custard/
+    - assets/itemData/Viscous Custard/
+    - assets/itemData/Viscous Fluids/
+    - assets/itemData/Volatile Chocolate Fancy/
+    - assets/itemData/Vortex Cube/
+    - assets/itemData/Vyice Cream/
+    - assets/itemData/Wailing Batter/
+    - assets/itemData/Wailing Caramel Cake/
+    - assets/itemData/Walker Brain/
+    - assets/itemData/Warm Proto-Milk/
+    - assets/itemData/Warp Cell/
+    - assets/itemData/Welding Soap/
+    - assets/itemData/Well-Stirred Stew/
+    - assets/itemData/Whispering Omelette/
+    - assets/itemData/Wild Milk/
+    - assets/itemData/Wild Yeast/
+    - assets/itemData/Wriggling Doughnut/
+    - assets/itemData/Wriggling Jam/
+    - assets/itemData/Wriggling Tart/
+    - assets/itemData/Writhing Jam Puff/
+    - assets/itemData/Writhing, Roiling Batter/
+    - assets/itemData/Product/
+    - assets/itemData/Organic Catalyst/
+    - assets/itemData/Tank of Coolant/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

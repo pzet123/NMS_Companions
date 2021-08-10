@@ -11,8 +11,9 @@ class ItemListTile extends StatelessWidget {
   final ItemSlot itemSlot;
   final String neuralAttribute;
   final String colour;
+  final String imagePath;
 
-  ItemListTile({@required this.child, @required this.itemName, @required this.dose, @required this.itemSlot, @required this.itemEffect, this.neuralAttribute, this.colour});
+  ItemListTile({@required this.child, @required this.itemName, @required this.dose, @required this.itemSlot, @required this.itemEffect, @required this.imagePath, this.neuralAttribute, this.colour});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +26,10 @@ class ItemListTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Expanded(
-              child: Image.asset("assets/sampleItem.png"),
+              child: Image.asset(this.imagePath),
               flex: 3,
             ),
+            SizedBox(width: 5,),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,6 +55,7 @@ class ItemListTile extends StatelessWidget {
           if(itemSlot == ItemSlot.NEURAL_CALIBRATOR){
             itemStatus.setNeuralAttribute(neuralAttribute);
           }
+          itemStatus.setItemImage(itemSlot, this.imagePath);
           Navigator.pop(context);
         },
       ),

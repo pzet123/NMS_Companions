@@ -36,7 +36,9 @@ class ItemMenu extends StatelessWidget {
                   itemName: itemEntry["name"],
                   dose: itemEntry["dose"],
                   itemSlot: itemSlot,
-                  itemEffect: (itemEntry["increasing"]) ? ItemStatus.INCREASING : ItemStatus.DECREASING)
+                  itemEffect: (itemEntry["increasing"]) ? ItemStatus.INCREASING : ItemStatus.DECREASING,
+                  imagePath: itemEntry["imagePath"],
+              ),
             );
           }
         }

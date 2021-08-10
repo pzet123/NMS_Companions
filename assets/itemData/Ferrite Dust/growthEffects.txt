@@ -1,0 +1,1 @@
+{"name":"Ferrite Dust","increasing":false,"dose":"0.31%"}

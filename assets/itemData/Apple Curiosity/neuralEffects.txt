@@ -1,0 +1,1 @@
+{"name":"'Apple' Curiosity","neuralAttribute":"Aggression","dose":"100%"}

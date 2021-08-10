@@ -1,0 +1,1 @@
+{"name":"Activated Emeril","neuralAttribute":"Gentleness","dose":"2.7%"}

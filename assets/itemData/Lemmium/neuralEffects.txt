@@ -1,0 +1,1 @@
+{"name":"Lemmium","neuralAttribute":"Helpfulness","dose":"33,3%"}

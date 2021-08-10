@@ -1,0 +1,1 @@
+{"name":"Pure Ferrite","increasing":false,"dose":".1%"}

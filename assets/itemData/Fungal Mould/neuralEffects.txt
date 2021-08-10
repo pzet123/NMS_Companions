@@ -1,0 +1,1 @@
+{"name":"Fungal Mould","neuralAttribute":"Helpfulness","dose":"0.32%"}

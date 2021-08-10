@@ -1,0 +1,1 @@
+{"name":"Abyssal Stew","neuralAttribute":"Independence","dose":"100%"}

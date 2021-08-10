@@ -1,0 +1,1 @@
+{"name":"GekNip","neuralAttribute":"Gentleness","dose":"100%"}

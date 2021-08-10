@@ -1,0 +1,1 @@
+{"name":"Hexite","neuralAttribute":"Aggression","dose":"12.5%"}

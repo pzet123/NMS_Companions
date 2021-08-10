@@ -1,0 +1,1 @@
+{"name":"Aloe Flesh","neuralAttribute":"Aggression","dose":"6.25%"}

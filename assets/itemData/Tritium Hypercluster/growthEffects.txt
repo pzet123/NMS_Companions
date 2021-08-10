@@ -1,0 +1,1 @@
+{"name":"Tritium Hypercluster","increasing":true,"dose":"5%"}

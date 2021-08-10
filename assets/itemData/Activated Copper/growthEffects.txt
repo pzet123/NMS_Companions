@@ -1,0 +1,1 @@
+{"name":"Activated Copper","increasing":true,"dose":"1%"}

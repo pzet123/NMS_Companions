@@ -78,7 +78,7 @@ class GeneticInputRow extends StatelessWidget {
     return Column(
       children: [
         Text("Genetic Input", style: textTheme.headline2),
-        Item("Companion Egg", "assets/sampleItem.png", ItemSlot.COMPANION_EGG, null),
+        Item("Companion Egg", "assets/CompanionEgg.png", ItemSlot.COMPANION_EGG, null),
       ],
     );
   }
@@ -103,7 +103,7 @@ class _CatalystsRowState extends State<CatalystsRow> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final attrStatus = InheritedItemData.of(context).status.attributeStatus;
+    final itemStatus = InheritedItemData.of(context).status;
     return Column(
       children: [
         Text("Catalysts", style: textTheme.headline2,),
@@ -111,10 +111,10 @@ class _CatalystsRowState extends State<CatalystsRow> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Flexible(child: CatalystsItem("Growth Hormone", widget.growthHormoneDose, attrStatus[ItemSlot.GROWTH_HORMONE][2], "assets/sampleItem.png", ItemSlot.GROWTH_HORMONE, widget.callback)),
-            Flexible(child: CatalystsItem("Gene Splitter", widget.geneSplitterDose, attrStatus[ItemSlot.GENE_SPLITTER][2], "assets/sampleItem.png", ItemSlot.GENE_SPLITTER, widget.callback)),
-            Flexible(child: CatalystsItem("Dye Injector", widget.dyeInjectorDose, attrStatus[ItemSlot.DYE_INJECTOR][2], "assets/sampleItem.png", ItemSlot.DYE_INJECTOR, widget.callback)),
-            Flexible(child: CatalystsItem("Neural Calibrator", widget.neuralCalibratorDose, attrStatus[ItemSlot.NEURAL_CALIBRATOR][2], "assets/sampleItem.png", ItemSlot.NEURAL_CALIBRATOR, widget.callback))
+            Flexible(child: CatalystsItem("Growth Hormone", widget.growthHormoneDose, itemStatus.attributeStatus[ItemSlot.GROWTH_HORMONE][2], itemStatus.getItemImagePath(ItemSlot.GROWTH_HORMONE), ItemSlot.GROWTH_HORMONE, widget.callback)),
+            Flexible(child: CatalystsItem("Gene Splitter", widget.geneSplitterDose, itemStatus.attributeStatus[ItemSlot.GENE_SPLITTER][2], itemStatus.getItemImagePath(ItemSlot.GENE_SPLITTER), ItemSlot.GENE_SPLITTER, widget.callback)),
+            Flexible(child: CatalystsItem("Dye Injector", widget.dyeInjectorDose, itemStatus.attributeStatus[ItemSlot.DYE_INJECTOR][2], itemStatus.getItemImagePath(ItemSlot.DYE_INJECTOR), ItemSlot.DYE_INJECTOR, widget.callback)),
+            Flexible(child: CatalystsItem("Neural Calibrator", widget.neuralCalibratorDose, itemStatus.attributeStatus[ItemSlot.NEURAL_CALIBRATOR][2], itemStatus.getItemImagePath(ItemSlot.NEURAL_CALIBRATOR), ItemSlot.NEURAL_CALIBRATOR, widget.callback))
           ],
         ),
       ],
@@ -127,10 +127,10 @@ class CatalystsItem extends StatelessWidget {
   final String dose;
   final String itemName;
   final ItemSlot itemSlot;
-  final String itemGraphicName;
+  final String itemGraphicPath;
   final String doseText;
   final callBack;
-  CatalystsItem(this.type, this.dose, this.itemName, this.itemGraphicName, this.itemSlot, this.callBack) :
+  CatalystsItem(this.type, this.dose, this.itemName, this.itemGraphicPath, this.itemSlot, this.callBack) :
         doseText = (double.parse(dose.replaceAll("%", "")) < 100.0) ? "Dose: $dose " : "Overdosed! $dose ";
 
   @override
@@ -139,7 +139,7 @@ class CatalystsItem extends StatelessWidget {
     return Column(
       children: [
         Text(type, style: textTheme.subtitle1),
-        Item(itemName, itemGraphicName, itemSlot, callBack),
+        Item(itemName, itemGraphicPath, itemSlot, callBack),
         Text(doseText, style: textTheme.subtitle1)
       ],
     );

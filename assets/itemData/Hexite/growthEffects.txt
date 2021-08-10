@@ -1,0 +1,1 @@
+{"name":"Hexite","increasing":false,"dose":"12.5%"}

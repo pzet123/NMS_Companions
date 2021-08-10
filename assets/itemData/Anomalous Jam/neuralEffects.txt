@@ -1,0 +1,1 @@
+{"name":"Anomalous Jam","neuralAttribute":"Helpfulness","dose":"33,3%"}

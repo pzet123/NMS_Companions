@@ -1,0 +1,1 @@
+{"name":"Magnetised Ferrite","neuralAttribute":"Helpfulness","dose":"1.66%"}

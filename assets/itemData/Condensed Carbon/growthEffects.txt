@@ -1,0 +1,1 @@
+{"name":"Condensed Carbon","increasing":false,"dose":"0.48%"}

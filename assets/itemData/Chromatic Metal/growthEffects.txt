@@ -1,0 +1,1 @@
+{"name":"Chromatic Metal","increasing":false,"dose":"1%"}

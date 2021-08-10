@@ -1,0 +1,1 @@
+{"name":"Magno-Gold","dose":"100%","colour":"Dark Yellow, Cream"}

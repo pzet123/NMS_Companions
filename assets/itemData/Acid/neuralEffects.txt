@@ -1,0 +1,1 @@
+{"name":"Acid","neuralAttribute":"Playfulness","dose":"100%"}

@@ -12,12 +12,6 @@ void main() async {
   List<Map<String, dynamic>> tableEntries = webScraper.getElement("div.main-container > div.resizable-container >"
       " div.page.has-right-rail > main.page__main > div#content.page-content > "
       "div#mw-content-text.mw-content-ltr > div.mw-parser-output > table.wikitable > tbody > tr", []);
-  List<Map<String, dynamic>> itemLinks = webScraper.getElement("div.main-container > div.resizable-container >"
-      " div.page.has-right-rail > main.page__main > div#content.page-content > "
-      "div#mw-content-text.mw-content-ltr > div.mw-parser-output > table.wikitable > tbody > tr > td > a", ["href"]);
-  print(itemLinks[0]["attributes"]["href"]);
-  await webScraper.loadWebPage(itemLinks[0]["attributes"]["href"]);
-
 
 
   runApp(InheritedItemData(

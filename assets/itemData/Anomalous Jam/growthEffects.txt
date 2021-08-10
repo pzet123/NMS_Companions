@@ -1,0 +1,1 @@
+{"name":"Anomalous Jam","increasing":false,"dose":"33.3%"}

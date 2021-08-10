@@ -1,0 +1,1 @@
+{"name":"Activated Cadmium","neuralAttribute":"Independence","dose":"1.8%"}

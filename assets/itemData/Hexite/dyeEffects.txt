@@ -1,0 +1,1 @@
+{"name":"Hexite","dose":"12.5%","colour":"Gray, Gray/Near White/No Color"}

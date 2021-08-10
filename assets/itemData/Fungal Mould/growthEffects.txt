@@ -1,0 +1,1 @@
+{"name":"Fungal Mould","increasing":false,"dose":"0.32%"}

@@ -1,0 +1,1 @@
+{"name":"Activated Indium","increasing":true,"dose":"3.7%"}

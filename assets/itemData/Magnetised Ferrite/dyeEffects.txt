@@ -1,0 +1,1 @@
+{"name":"Magnetised Ferrite","dose":"1.66%","colour":"Bright Yellow. Bright Yellow/Dull Red/Gray"}

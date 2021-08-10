@@ -1,0 +1,1 @@
+{"name":"Aronium","neuralAttribute":"Gentleness","dose":"100%"}

@@ -1,0 +1,1 @@
+{"name":"Pugneum","neuralAttribute":"Aggression","dose":"2.78%"}

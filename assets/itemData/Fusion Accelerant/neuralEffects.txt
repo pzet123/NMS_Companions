@@ -1,0 +1,1 @@
+{"name":"Fusion Accelerant","neuralAttribute":"Independence","dose":"100%"}

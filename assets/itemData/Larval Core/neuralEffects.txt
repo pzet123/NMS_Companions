@@ -1,0 +1,1 @@
+{"name":"Larval Core","neuralAttribute":"Aggression","dose":"100%"}

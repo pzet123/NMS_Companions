@@ -1,0 +1,1 @@
+{"name":"Geodesite","dose":"100%","colour":"Purple, Gray"}

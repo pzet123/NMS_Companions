@@ -1,0 +1,1 @@
+{"name":"Larval Core","dose":"100%","colour":"Dull Orange, Dull Orange/Sicky Green/White"}
