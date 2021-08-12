@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 class GuideScreen extends StatelessWidget {
   @override
@@ -17,7 +18,8 @@ class GuideScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            GuideEntry(iconData: Icons.color_lens_rounded, title: "Companion Colouring", text: "sda"),
+            GuideEntryListTile(iconData: Icons.color_lens_rounded, title: "Companion Colouring", text: "sda"),
+            GuideEntryListTile(iconData: MaterialCommunityIcons.egg, title: "Attaining a Companion Egg", text: "EGE",),
 
           ],
         ),
@@ -26,11 +28,11 @@ class GuideScreen extends StatelessWidget {
   }
 }
 
-class GuideEntry extends StatelessWidget {
+class GuideEntryListTile extends StatelessWidget {
   final IconData iconData;
   final String title;
   final String text;
-  GuideEntry({this.iconData, this.title, this.text});
+  GuideEntryListTile({this.iconData, this.title, this.text});
   @override
   Widget build(BuildContext context) {
     return Row(

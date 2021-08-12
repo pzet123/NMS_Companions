@@ -52,35 +52,38 @@ class ItemMenu extends StatelessWidget {
                   itemName: itemEntry["name"],
                   dose: itemEntry["dose"],
                   itemSlot: ItemSlot.GENE_SPLITTER,
-                  itemEffect: ItemStatus.UNSTABLE)
+                  itemEffect: ItemStatus.UNSTABLE,
+                  imagePath: itemEntry["imagePath"],)
             );
           }
         }
         break;
       case ItemSlot.DYE_INJECTOR : {
-        for(Map<String, dynamic> entry in itemData.getDyeTable()){
+        for(Map<String, dynamic> itemEntry in itemData.getDyeTable()){
           itemWidgets.add(
             ItemListTile(
-                child: DyeInjectorInfo(entry["colour"]),
-                itemName: entry["name"],
-                dose: entry["dose"],
+                child: DyeInjectorInfo(itemEntry["colour"]),
+                itemName: itemEntry["name"],
+                dose: itemEntry["dose"],
                 itemSlot: itemSlot,
                 itemEffect: ItemStatus.UNSTABLE,
-                colour: entry["colour"])
+                colour: itemEntry["colour"],
+                imagePath: itemEntry["imagePath"],)
           );
         }
       }
       break;
       case ItemSlot.NEURAL_CALIBRATOR : {
-        for(Map<String, dynamic> entry in itemData.getNeuralTable()){
+        for(Map<String, dynamic> itemEntry in itemData.getNeuralTable()){
           itemWidgets.add(
             ItemListTile(
-                child: NeuralCalibratorInfo(attribute: entry["neuralAttribute"], increasing: true,),
-                itemName: entry["name"],
-                dose: entry["dose"],
+                child: NeuralCalibratorInfo(attribute: itemEntry["neuralAttribute"], increasing: true,),
+                itemName: itemEntry["name"],
+                dose: itemEntry["dose"],
                 itemSlot: itemSlot,
                 itemEffect: ItemStatus.INCREASING,
-                neuralAttribute: entry["neuralAttribute"],)
+                neuralAttribute: itemEntry["neuralAttribute"],
+                imagePath: itemEntry["imagePath"],)
           );
         }
 

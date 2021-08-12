@@ -1,0 +1,1 @@
+{"name":"Magnetised Ferrite","dose":"0.104%"}

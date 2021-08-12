@@ -98,7 +98,7 @@ class ItemData{
     _growthTableItemNames = ["Apple Cake of Lost Souls", "Apple Curiosity", "Legs-in-Pastry", "Abyssal Stew", "Acid", "Activated Cadmium", "Activated Copper", "Activated Emeril", "Activated Indium", "Albumen Pearl", "Aloe Flesh", "Ammonia", "Angelic Fruitcake", "Anomalous Doughnut", "Anomalous Jam", "Aronium", "Cadmium", "Caramel-Encrusted Cake", "Carbon", "Chlorine", "Chromatic Metal", "Cobalt", "Condensed Carbon", "Copper", "Crystal Sulphide", "Cyto-Phosphate", "Di-hydrogen", "Emeril", "Ferrite Dust", "Fungal Mould", "Fusion Accelerant", "Geode", "Gold", "Hexite", "Indium", "Ionised Cobalt", "Larval Core", "Living Pearl", "Magnetised Ferrite", "Oxygen", "Pugneum", "Pure Ferrite", "Salt", "Sodium", "Soft Custard Fancy", "Storm Crystal", "Tritium Hypercluster", "Unstable Plasma"];
     _geneTableItemNames = ["Apple Cake of Lost Souls", "Apple Curiosity", "Legs-in-Pastry", "Abyssal Stew", "Acid", "Activated Cadmium", "Activated Emeril", "Activated Indium", "Aloe Flesh", "Ammonia", "Angelic Fruitcake", "Anomalous Doughnut", "Anomalous Jam", "Aronium", "Caramel-Encrusted Cake", "Carbon", "Geode", "Fusion Accelerant", "Storm Crystal", "Ionised Cobalt", "Sodium", "Magnetised Ferrite", "Di-hydrogen", "Larval Core", "Oxygen", "Condensed Carbon", "Unstable Plasma", "Fungal Mould", "Soft Custard Fancy", "Hexite", "Chromatic Metal"];
     _dyeTableItemNames = ["Apple Cake of Lost Souls", "Apple Curiosity", "Legs-in-Pastry", "Abyssal Stew", "Acid", "Activated Cadmium", "Activated Emeril", "Activated Indium", "Aloe Flesh", "Ammonia", "Angelic Fruitcake", "Anomalous Doughnut", "Anomalous Jam", "Anomalous Tart", "Aronium", "Bromide Salt", "Carbon", "Condensed Carbon", "Enriched Carbon", "Caramel-Encrusted Cake", "Chromatic Metal", "Crystal Sulphide", "Di-hydrogen", "Fireberry", "Frozen Tubers", "Fungal Mould", "Fusion Accelerant", "Geode", "Geodesite", "Grahberry", "Grantine", "Gravitino Ball", "Hadal Core", "Herox", "Hexaberry", "Hexite", "Hot Ice", "Hypnotic Eye", "Ionised Cobalt", "Iridesite", "Jade Peas", "Larval Core", "Leopard-Fruit", "Lemmium", "Living Pearl", "Lubricant", "Magnetised Ferrite", "Magno-Gold", "Nitrogen Salt", "Ohmic Gel", "Optical Solvent", "Organic Catalyst", "Oxygen", "Re-latticed Arc Crystal", "Sac Venom", "Semiconductor", "Tank of Coolant", "Thermic Condensate", "Sodium", "Soft Custard Fancy", "Storm Crystal", "Unrefined Pyrite Grease", "Unstable Gel", "Unstable Plasma", "Welding Soap"];
-    _neuralTableEntries = ["Apple Curiosity", "Activated Emeril", "Activated Indium", "Aloe Flesh", "Aronium", "Storm Crystal", "Larval Core", "Hexite", "Indium", "Pugneum", "GekNip", "Product", "Apple Cake of Lost Souls", "Legs-in-Pastry", "Abyssal Stew", "Angelic Fruitcake", "Activated Cadmium", "Activated Copper", "Cadmium", "Emeril", "Ammonia", "Sodium", "Di-hydrogen", "Fusion Accelerant", "Ionised Cobalt", "Soft Custard Fancy", "Caramel-Encrusted Cake", "Gold", "Product", "Acid", "Anomalous Doughnut", "Anomalous Jam", "Carbon", "Copper", "Geode", "Lemmium", "Magnetised Ferrite", "Oxygen", "Condensed Carbon", "Unstable Plasma", "Fungal Mould", "Chromatic Metal"];
+    _neuralTableItemNames = ["Apple Curiosity", "Activated Emeril", "Activated Indium", "Aloe Flesh", "Aronium", "Storm Crystal", "Larval Core", "Hexite", "Indium", "Pugneum", "GekNip", "Apple Cake of Lost Souls", "Legs-in-Pastry", "Abyssal Stew", "Angelic Fruitcake", "Activated Cadmium", "Activated Copper", "Cadmium", "Emeril", "Ammonia", "Sodium", "Di-hydrogen", "Fusion Accelerant", "Ionised Cobalt", "Soft Custard Fancy", "Caramel-Encrusted Cake", "Gold", "Acid", "Anomalous Doughnut", "Anomalous Jam", "Carbon", "Copper", "Geode", "Lemmium", "Magnetised Ferrite", "Oxygen", "Condensed Carbon", "Unstable Plasma", "Fungal Mould", "Chromatic Metal"];
     this.tableEntries = tableEntries;
     initialiseTables();
 
@@ -107,9 +107,9 @@ class ItemData{
   void initialiseTables() async {
     WidgetsFlutterBinding.ensureInitialized();
     _growthTableEntries = await initialiseGrowthTable();
-    // _geneticTableEntries = await initialiseGeneTable();
-    // _dyeTableEntries = await initialiseDyeTable();
-    // _neuralTableEntries = await initialiseNeuralTable();
+    _geneticTableEntries = await initialiseGeneTable();
+    _dyeTableEntries = await initialiseDyeTable();
+    _neuralTableEntries = await initialiseNeuralTable();
   }
 
   Future<List> initialiseGrowthTable() async {
@@ -124,34 +124,38 @@ class ItemData{
     return growthTable;
     }
 
-    List initialiseGeneTable(){
+    Future<List> initialiseGeneTable() async {
       List geneTable = [];
-      for(Map<String, dynamic> entry in tableEntries.sublist(450, 481)){
-        String entryText = entry["title"];
-        List<String> entryAttributes = entryText.split("\n");
-        geneTable.add({"name" : entryAttributes[1], "dose" : entryAttributes[3]});
+      for(String itemName in _geneTableItemNames){
+        String itemImagePath = "assets/itemData/$itemName/image.png";
+        String geneEffectsFile = await rootBundle.loadString("assets/itemData/$itemName/geneEffects.txt");
+        Map geneEffectsMap = jsonDecode(geneEffectsFile);
+        geneEffectsMap["imagePath"] = itemImagePath;
+        geneTable.add(geneEffectsMap);
       }
       return geneTable;
     }
 
-    List initialiseDyeTable(){
+    Future<List> initialiseDyeTable() async {
       List dyeTable = [];
-      for(Map<String, dynamic> entry in tableEntries.sublist(482, 553)){
-        String entryText = entry["title"];
-        List<String> entryAttributes = (entryText.split("\n"));
-        if(entryAttributes[9].length > 0 && entryAttributes[1] != "Product"){
-          dyeTable.add({"name": entryAttributes[1], "dose": entryAttributes[9], "colour": entryAttributes[3]});
-        }
+      for(String itemName in _dyeTableItemNames){
+        String itemImagePath = "assets/itemData/$itemName/image.png";
+        String dyeEffectsFile = await rootBundle.loadString("assets/itemData/$itemName/dyeEffects.txt");
+        Map dyeEffectsMap = jsonDecode(dyeEffectsFile);
+        dyeEffectsMap["imagePath"] = itemImagePath;
+        dyeTable.add(dyeEffectsMap);
       }
       return dyeTable;
     }
 
-    List initialiseNeuralTable(){
+    Future<List> initialiseNeuralTable() async {
       List neuralTable = [];
-      for(Map<String, dynamic> entry in tableEntries.sublist(554, 596)){
-        String entryText = entry["title"];
-        List entryAttributes = entryText.split("\n");
-        neuralTable.add({"name": entryAttributes[1], "neuralAttribute": entryAttributes[3], "dose": entryAttributes[5]});
+      for(String itemName in _neuralTableItemNames){
+        String itemImagePath = "assets/itemData/$itemName/image.png";
+        String neuralEffectsFile = await rootBundle.loadString("assets/itemData/$itemName/neuralEffects.txt");
+        Map neuralEffectsMap = jsonDecode(neuralEffectsFile);
+        neuralEffectsMap["imagePath"] = itemImagePath;
+        neuralTable.add(neuralEffectsMap);
       }
       return neuralTable;
     }
