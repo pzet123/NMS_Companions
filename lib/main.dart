@@ -7,17 +7,17 @@ import 'GuideScreen.dart';
 
 void main() async {
 
-  WebScraper webScraper = WebScraper("https://nomanssky.fandom.com");
-  await webScraper.loadWebPage("/wiki/Egg_Sequencer");
-  List<Map<String, dynamic>> tableEntries = webScraper.getElement("div.main-container > div.resizable-container >"
-      " div.page.has-right-rail > main.page__main > div#content.page-content > "
-      "div#mw-content-text.mw-content-ltr > div.mw-parser-output > table.wikitable > tbody > tr", []);
-
-
   runApp(InheritedItemData(
       child: new MaterialApp(
         routes: {
-          "/": (context) => EggSequencer(),
+          "/": (context) {
+            double screenHeight = MediaQuery.of(context).size.height;
+            print(screenHeight);
+            InheritedItemData.of(context).textTheme = Theme.of(context).textTheme.apply(
+                fontSizeFactor: screenHeight/760
+            );
+            return EggSequencer();
+          },
           "/ItemMenu": (context) => ItemMenu(),
           "/GuideScreen" : (context) => GuideScreen(),
           "/Donation": (context) => null
@@ -56,6 +56,6 @@ void main() async {
             )
         ),
       ),
-    itemData: new ItemData(tableEntries),
+    itemData: new ItemData(),
   ));
 }

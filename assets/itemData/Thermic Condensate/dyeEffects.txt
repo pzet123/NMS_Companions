@@ -1,1 +1,1 @@
-{"name":"Thermic Condensate","dose":"100%","colour":"Lime Green. Tan"}
+{"name":"Thermic Condensate","dose":"100%","colour":"Lime Green, Tan"}

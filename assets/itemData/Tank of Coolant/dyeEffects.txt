@@ -1,1 +1,1 @@
-{"name":"Tank of Coolant","dose":"100%","colour":"Orange. Gray"}
+{"name":"Tank of Coolant","dose":"100%","colour":"Orange, Gray"}

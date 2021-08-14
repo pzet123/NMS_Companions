@@ -6,7 +6,7 @@ class DyeInjectorInfo extends StatelessWidget {
   DyeInjectorInfo(this.colours);
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = InheritedItemData.of(context).textTheme;
     return Text(colours, style: textTheme.subtitle2);
   }
 }

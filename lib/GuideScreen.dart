@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 class GuideScreen extends StatelessWidget {
@@ -35,12 +36,20 @@ class GuideEntryListTile extends StatelessWidget {
   GuideEntryListTile({this.iconData, this.title, this.text});
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(iconData),
-        SizedBox(width: 25,),
-        Text(title),
-      ],
+    final textTheme = Theme.of(context).textTheme;
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 7),
+      color: Colors.cyan[800],
+      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+      child: GestureDetector(
+        child: Row(
+          children: [
+            Icon(iconData, size: 42,),
+            SizedBox(width: 25,),
+            Text(title, style: textTheme.headline3,),
+          ],
+        ),
+      ),
     );
   }
 }

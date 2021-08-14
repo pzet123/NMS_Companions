@@ -18,7 +18,7 @@ class ItemListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final itemStatus = InheritedItemData.of(context).status;
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = InheritedItemData.of(context).textTheme;
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 6),
       child: GestureDetector(
@@ -62,10 +62,3 @@ class ItemListTile extends StatelessWidget {
     );
   }
 }
-
-// ListTile(
-// title: Text(itemName, style: textTheme.headline3,),
-// subtitle: Text("Dose: $dose", style: textTheme.subtitle2,),
-// leading: Image.asset("assets/sampleItem.png"),
-// trailing: child
-// ),

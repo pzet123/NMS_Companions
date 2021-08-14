@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nmscompanions/stateWidget.dart';
 
 class NeuralCalibratorInfo extends StatelessWidget {
   final String attribute;
@@ -6,7 +7,7 @@ class NeuralCalibratorInfo extends StatelessWidget {
   NeuralCalibratorInfo({@required this.attribute, @required this.increasing});
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = InheritedItemData.of(context).textTheme;
     return Align(
       child: Column(
         children: [

@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:nmscompanions/Item.dart';
 import "stateWidget.dart";
@@ -11,45 +14,77 @@ class _EggSequencerState extends State<EggSequencer> {
   @override
   Widget build(BuildContext context) {
     final attributeStatus = InheritedItemData.of(context).status.attributeStatus;
-    final textTheme = Theme.of(context).textTheme;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Egg Sequencer", style: textTheme.headline1,),
-        centerTitle: true,
-        backgroundColor: Colors.cyan[900],
-        elevation: 5,
-        leading: IconButton(
-          icon: Icon(Icons.help_rounded),
-          onPressed: () => {
-            Navigator.pushNamed(context, "/GuideScreen")
-          }
-        )
-      ),
+    final itemData = InheritedItemData.of(context).itemData;
+    final textTheme = InheritedItemData.of(context).textTheme;
+    return FutureBuilder(
+      future: itemData.initialiseTables(),
+      builder: (context, state) {
+        if(state.connectionState == ConnectionState.done) {
+          print("Egg seq build");
+          return Scaffold(
+            appBar: AppBar(
+                title: Text("Egg Sequencer", style: textTheme.headline1,),
+                centerTitle: true,
+                backgroundColor: Colors.cyan[900],
+                elevation: 5,
+                leading: IconButton(
+                    icon: Icon(Icons.help_rounded),
+                    onPressed: () =>
+                    {
+                      Navigator.pushNamed(context, "/GuideScreen")
+                    }
+                )
+            ),
 
-      body: Container(
-        padding: EdgeInsets.all(10),
-       decoration: BoxDecoration(
-         gradient: LinearGradient(
-             begin: AlignmentDirectional.topCenter,
-             end: AlignmentDirectional.bottomCenter,
-             colors: [Colors.cyan[900], Colors.teal[800], Colors.cyan[800]]
-         )
-       ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            GeneticInputRow(),
-            RowDivider(),
-            CatalystsRow(attributeStatus[ItemSlot.GROWTH_HORMONE][1], attributeStatus[ItemSlot.GENE_SPLITTER][1],
-                attributeStatus[ItemSlot.DYE_INJECTOR][1], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][1], () => setState(() {})),
-            RowDivider(),
-            EmbryoStatusRow(attributeStatus[ItemSlot.GROWTH_HORMONE][0], attributeStatus[ItemSlot.GENE_SPLITTER][0],
-                attributeStatus[ItemSlot.DYE_INJECTOR][0], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][0], attributeStatus[ItemSlot.NEURAL_CALIBRATOR][3]),
-            RowDivider(),
-            ColourRow(attributeStatus[ItemSlot.DYE_INJECTOR][3])
-          ],
-        ),
-      ),
+            body: Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: AlignmentDirectional.topCenter,
+                      end: AlignmentDirectional.bottomCenter,
+                      colors: [
+                        Colors.cyan[900],
+                        Colors.teal[800],
+                        Colors.cyan[800]
+                      ]
+                  )
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Flexible(
+                    flex: 12,
+                      child: GeneticInputRow()),
+                  RowDivider(),
+                  Flexible(
+                    flex: 17,
+                    child: CatalystsRow(attributeStatus[ItemSlot.GROWTH_HORMONE][1],
+                        attributeStatus[ItemSlot.GENE_SPLITTER][1],
+                        attributeStatus[ItemSlot.DYE_INJECTOR][1],
+                        attributeStatus[ItemSlot.NEURAL_CALIBRATOR][1], () =>
+                            setState(() {})),
+                  ),
+                  RowDivider(),
+                  Flexible(
+                    flex: 10,
+                    child: EmbryoStatusRow(attributeStatus[ItemSlot.GROWTH_HORMONE][0],
+                        attributeStatus[ItemSlot.GENE_SPLITTER][0],
+                        attributeStatus[ItemSlot.DYE_INJECTOR][0],
+                        attributeStatus[ItemSlot.NEURAL_CALIBRATOR][0],
+                        attributeStatus[ItemSlot.NEURAL_CALIBRATOR][3]),
+                  ),
+                  RowDivider(),
+                  Flexible(
+                    flex: 10,
+                      child: ColourRow(attributeStatus[ItemSlot.DYE_INJECTOR][3]))
+                ],
+              ),
+            ),
+          );
+        } else return CircularProgressIndicator(
+          backgroundColor: Colors.teal[800],
+        );
+      }
     );
   }
 }
@@ -65,8 +100,101 @@ class ColourRow extends StatefulWidget {
 class _ColourRowState extends State<ColourRow> {
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    return Text("Current Colouring: " + widget.colour, style: textTheme.headline1,);
+    final textTheme = InheritedItemData.of(context).textTheme;
+    return Column(
+      children: [
+        Text(
+          "Current Colouring: ", style: textTheme.headline1,),
+        SizedBox(height: 5,)
+      ] + getColourWidgets(getColoursFromText(widget.colour)),
+    );
+  }
+
+  List<Color> getColoursFromText(String colourText) {
+    List<Color> colourList = [];
+    Map<String, Color> companionColours = {
+      "Brown": Colors.brown,
+      "Black": Colors.black,
+      "White": Colors.white,
+      "Red": Colors.red,
+      "Mint" : Colors.cyan[100],
+      "Dark Gray" : Colors.grey[700],
+      "Sickly Green" : Colors.lightGreen,
+      "Medium Cream" : Colors.orange[100],
+      "Dull Orange" : Colors.orange[300],
+      "Golden Orange" : Colors.orange[400],
+      "Light Lavender" : Colors.purple[100],
+      "Light Green" : Colors.green[200],
+      "Leaf Green" : Colors.green[700],
+      "Burnt Orange" : Colors.deepOrange,
+      "Dark Green" : Colors.green[900],
+      "Light Brown" : Colors.brown[300],
+      "Pale Blue" : Colors.lightBlue,
+      "Yellow" : Colors.yellow,
+      "Pale Yellow" : Colors.yellow[300],
+      "Gray" : Colors.grey,
+      "Blue" : Colors.blue,
+      "Bright Dull Yellow" : Colors.yellowAccent,
+      "Cream" : Colors.yellowAccent[100],
+      "Purple" : Colors.purple,
+      "Bright Yellow" : Colors.yellow[300],
+      "Lavender" : Colors.purple[200],
+      "Light Orange" : Colors.orange[200],
+      "Blue Green" : Colors.teal[400],
+      "Light Blue" : Colors.lightBlue[400],
+      "Near White" : Colors.grey[100],
+      "Burgundy" : Colors.red[900],
+      "Mint Green" : Colors.green[200],
+      "Dark Yellow" : Colors.yellow[700],
+      "Lime Green" : Colors.lightGreen[300],
+      "Dark Tan" : Colors.brown[500],
+      "Auburn" : Colors.redAccent[700],
+      "Brick Red" : Colors.red[800],
+      "Powder Blue" : Colors.indigo,
+      "Light Cream" : Colors.yellow[100],
+      "Dull Yellow" : Colors.yellow[600],
+      "Tan" : Colors.brown[200],
+      "Pink" : Colors.pink[400],
+      "Cyan" : Colors.cyan,
+      "Light Gray" : Colors.grey[400],
+      "Dull Green" : Colors.green[900],
+      "Pale Red" : Colors.redAccent,
+      "Green" : Colors.green,
+      "Light Yellow" : Colors.yellow[300],
+      "Dull Cream" : Colors.brown[200],
+      "Deep Red" : Colors.redAccent[700],
+      "Sicky Green" : Colors.lime,
+      "Bright Orange" : Colors.orange[300],
+      "Orange" : Colors.orange,
+      "Dull Red" : Colors.red[600],
+    };
+    for(String colourPairs in colourText.split("/")) {
+      for(String colour in colourPairs.split(",")){
+        if(companionColours.containsKey(colour.trim())) {
+          Color colourObj = companionColours[colour.trim()];
+          if(!colourList.contains(colourObj)) {
+            colourList.add(companionColours[colour.trim()]);
+          }
+        }
+      }
+    }
+    return colourList;
+  }
+
+  List<Widget> getColourWidgets(List<Color> colours){
+    List<Widget> colourTiles = [];
+    for(Color colour in colours){
+      colourTiles.add(
+          Expanded(
+            flex: 1,
+            child: SizedBox(
+              child: Container(
+                color: colour
+              ),
+            ),
+          ));
+      }
+    return colourTiles;
   }
 }
 
@@ -74,7 +202,7 @@ class _ColourRowState extends State<ColourRow> {
 class GeneticInputRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = InheritedItemData.of(context).textTheme;
     return Column(
       children: [
         Text("Genetic Input", style: textTheme.headline2),
@@ -102,7 +230,7 @@ class _CatalystsRowState extends State<CatalystsRow> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = InheritedItemData.of(context).textTheme;
     final itemStatus = InheritedItemData.of(context).status;
     return Column(
       children: [
@@ -135,7 +263,7 @@ class CatalystsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = InheritedItemData.of(context).textTheme;
     return Column(
       children: [
         Text(type, style: textTheme.subtitle1),
@@ -162,11 +290,11 @@ class EmbryoStatusRow extends StatefulWidget {
 class _EmbryoStatusRowState extends State<EmbryoStatusRow> {
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = InheritedItemData.of(context).textTheme;
     return Column(
       children: [
         Text("Embryo Status", style: textTheme.headline2),
-        SizedBox(height: 10,),
+        SizedBox(height: 5,),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -187,24 +315,23 @@ class EmbryoItem extends StatelessWidget {
   Widget statusIcon;
   final String attributeName;
 
-  EmbryoItem(this.itemStatus, this.attributeName){
-    if(itemStatus == ItemStatus.INCREASING){
-      statusIcon = Icon(Icons.trending_up_rounded, color: Colors.greenAccent[400], size: 50,);
-      status = "Increasing";
-    } else if(itemStatus == ItemStatus.DECREASING){
-      statusIcon = Icon(Icons.trending_down_rounded, color: Colors.red, size: 50,);
-      status = "Decreasing";
-    } else {
-      statusIcon = Icon(Icons.multitrack_audio_rounded, color: Colors.blue[300], size: 50,);
-      status = "Unstable";
-    }
-
-  }
-
+  EmbryoItem(this.itemStatus, this.attributeName);
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double iconSize = 50 * (screenHeight / 760);
+    if(itemStatus == ItemStatus.INCREASING){
+      statusIcon = Icon(Icons.trending_up_rounded, color: Colors.greenAccent[400], size: iconSize,);
+      status = "Increasing";
+    } else if(itemStatus == ItemStatus.DECREASING){
+      statusIcon = Icon(Icons.trending_down_rounded, color: Colors.red, size: iconSize,);
+      status = "Decreasing";
+    } else {
+      statusIcon = Icon(Icons.multitrack_audio_rounded, color: Colors.blue[300], size: iconSize,);
+      status = "Unstable";
+    }
+    final textTheme = InheritedItemData.of(context).textTheme;
     return Column(
       children: [
         Text(attributeName, style: textTheme.subtitle1),
@@ -219,11 +346,12 @@ class EmbryoItem extends StatelessWidget {
 class RowDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25),
+      padding: EdgeInsets.symmetric(horizontal: 25 * (screenHeight / 760)),
       child: Divider(
-        height: 20,
-        thickness: 3,
+        height: 20 * (screenHeight / 760),
+        thickness: 3 * (screenHeight / 760),
         color: Colors.blueGrey[600]
       ),
     );
