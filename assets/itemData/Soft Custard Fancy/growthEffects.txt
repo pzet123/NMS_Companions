@@ -1,1 +1,1 @@
-{"name":"Soft Custard Fancy","increasing":true,"dose":"100%"}
+{"name":"Soft Custard Fancy","increasing":true,"dose":"100%","maxStack":1}

@@ -1,1 +1,1 @@
-{"name":"Indium","increasing":true,"dose":"1.8%"}
+{"name":"Indium","increasing":true,"dose":"1.8%","maxStack":56}

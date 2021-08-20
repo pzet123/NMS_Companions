@@ -1,1 +1,1 @@
-{"name":"Hexite","increasing":false,"dose":"12.5%"}
+{"name":"Hexite","increasing":false,"dose":"12.5%","maxStack":8}

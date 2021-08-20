@@ -1,1 +1,1 @@
-{"name":"Cyto-Phosphate","increasing":true,"dose":".8%"}
+{"name":"Cyto-Phosphate","increasing":true,"dose":".8%","maxStack":128}

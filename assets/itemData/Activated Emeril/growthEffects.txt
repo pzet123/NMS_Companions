@@ -1,1 +1,1 @@
-{"name":"Activated Emeril","increasing":true,"dose":"2.7%"}
+{"name":"Activated Emeril","increasing":true,"dose":"2.7%","maxStack":37}

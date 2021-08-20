@@ -1,1 +1,1 @@
-{"name":"Semiconductor","dose":"100%","colour":"Purple, Cream"}
+{"name":"Semiconductor","dose":"100%","colour":"Purple. Cream"}

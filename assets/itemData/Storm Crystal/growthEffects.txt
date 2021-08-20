@@ -1,1 +1,1 @@
-{"name":"Storm Crystal","increasing":true,"dose":"100%"}
+{"name":"Storm Crystal","increasing":true,"dose":"100%","maxStack":1}

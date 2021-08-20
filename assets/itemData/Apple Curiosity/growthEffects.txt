@@ -1,1 +1,1 @@
-{"name":"'Apple' Curiosity","increasing":false,"dose":"100%"}
+{"name":"'Apple' Curiosity","increasing":false,"dose":"100%","maxStack":1}

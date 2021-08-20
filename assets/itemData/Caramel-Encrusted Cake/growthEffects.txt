@@ -1,1 +1,1 @@
-{"name":"Caramel-Encrusted Cake","increasing":true,"dose":"100%"}
+{"name":"Caramel-Encrusted Cake","increasing":true,"dose":"100%","maxStack":1}

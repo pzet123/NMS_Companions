@@ -1,1 +1,1 @@
-{"name":"Albumen Pearl","increasing":false,"dose":"18%"}
+{"name":"Albumen Pearl","increasing":false,"dose":"18%","maxStack":6}

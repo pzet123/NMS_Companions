@@ -1,1 +1,1 @@
-{"name":"Larval Core","increasing":false,"dose":"100%"}
+{"name":"Larval Core","increasing":false,"dose":"100%","maxStack":1}

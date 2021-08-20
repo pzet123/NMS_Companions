@@ -1,1 +1,1 @@
-{"name":"Activated Cadmium","increasing":true,"dose":"1.8%"}
+{"name":"Activated Cadmium","increasing":true,"dose":"1.8%","maxStack":57}

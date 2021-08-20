@@ -1,1 +1,1 @@
-{"name":"Emeril","increasing":true,"dose":"1.4%"}
+{"name":"Emeril","increasing":true,"dose":"1.4%","maxStack":74}

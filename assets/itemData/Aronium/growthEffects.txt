@@ -1,1 +1,1 @@
-{"name":"Aronium","increasing":false,"dose":"39%"}
+{"name":"Aronium","increasing":false,"dose":"39%","maxStack":3}

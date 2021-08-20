@@ -1,1 +1,1 @@
-{"name":"'Apple' Cake of Lost Souls","increasing":true,"dose":"100%"}
+{"name":"'Apple' Cake of Lost Souls","increasing":true,"dose":"100%","maxStack":1}

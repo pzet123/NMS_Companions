@@ -1,1 +1,1 @@
-{"name":"Fungal Mould","increasing":false,"dose":"0.32%"}
+{"name":"Fungal Mould","increasing":false,"dose":"0.32%","maxStack":308}

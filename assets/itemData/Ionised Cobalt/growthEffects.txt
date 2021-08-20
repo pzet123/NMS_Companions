@@ -1,1 +1,1 @@
-{"name":"Ionised Cobalt","increasing":true,"dose":"2%"}
+{"name":"Ionised Cobalt","increasing":true,"dose":"2%","maxStack":64}

@@ -1,1 +1,1 @@
-{"name":"Living Pearl","increasing":false,"dose":"7.9%"}
+{"name":"Living Pearl","increasing":false,"dose":"7.9%","maxStack":13}

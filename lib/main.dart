@@ -12,7 +12,6 @@ void main() async {
         routes: {
           "/": (context) {
             double screenHeight = MediaQuery.of(context).size.height;
-            print(screenHeight);
             InheritedItemData.of(context).textTheme = Theme.of(context).textTheme.apply(
                 fontSizeFactor: screenHeight/760
             );
@@ -20,6 +19,7 @@ void main() async {
           },
           "/ItemMenu": (context) => ItemMenu(),
           "/GuideScreen" : (context) => GuideScreen(),
+          "/GuideEntry" : (context) => GuideEntryScreen(),
           "/Donation": (context) => null
         },
         initialRoute: "/",

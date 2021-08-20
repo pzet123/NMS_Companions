@@ -1,1 +1,1 @@
-{"name":"Sodium","increasing":true,"dose":"0.83%"}
+{"name":"Sodium","increasing":true,"dose":"0.83%","maxStack":120}

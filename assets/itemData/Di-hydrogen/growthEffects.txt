@@ -1,1 +1,1 @@
-{"name":"Di-hydrogen","increasing":false,"dose":"0.68%"}
+{"name":"Di-hydrogen","increasing":false,"dose":"0.68%","maxStack":145}

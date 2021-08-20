@@ -1,1 +1,1 @@
-{"name":"Abyssal Stew","increasing":true,"dose":"100%"}
+{"name":"Abyssal Stew","increasing":true,"dose":"100%","maxStack":1}

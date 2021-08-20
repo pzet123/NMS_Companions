@@ -1,1 +1,1 @@
-{"name":"Ammonia","increasing":true,"dose":"1.25%"}
+{"name":"Ammonia","increasing":true,"dose":"1.25%","maxStack":80}

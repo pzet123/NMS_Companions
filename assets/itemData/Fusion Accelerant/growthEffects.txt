@@ -1,1 +1,1 @@
-{"name":"Fusion Accelerant","increasing":true,"dose":"100%"}
+{"name":"Fusion Accelerant","increasing":true,"dose":"100%","maxStack":1}

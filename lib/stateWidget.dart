@@ -39,10 +39,10 @@ class Status {
   final Map attributeStatus;
   Map<ItemSlot, String> _itemImagePaths;
 
-  Status() : attributeStatus = {ItemSlot.GROWTH_HORMONE: [ItemStatus.DECREASING, "0", ""],
-    ItemSlot.GENE_SPLITTER: [ItemStatus.UNSTABLE, "0", ""],
-    ItemSlot.DYE_INJECTOR: [ItemStatus.UNSTABLE, "0", "", "None"],
-    ItemSlot.NEURAL_CALIBRATOR: [ItemStatus.INCREASING, "0", "", "Aggression"]} {
+  Status() : attributeStatus = {ItemSlot.GROWTH_HORMONE: [ItemStatus.DECREASING, "0", "", 1],
+    ItemSlot.GENE_SPLITTER: [ItemStatus.UNSTABLE, "0", "", 1],
+    ItemSlot.DYE_INJECTOR: [ItemStatus.UNSTABLE, "0", "", 1, "None"],
+    ItemSlot.NEURAL_CALIBRATOR: [ItemStatus.INCREASING, "0", "", 1, "Aggression"]} {
   _itemImagePaths = {
   ItemSlot.GROWTH_HORMONE :"assets/sampleItem.png",
   ItemSlot.GENE_SPLITTER : "assets/sampleItem.png",
@@ -51,7 +51,9 @@ class Status {
   };
 }
 
-
+  void setItemQuantity(ItemSlot itemSlot, int quantity){
+    attributeStatus[itemSlot][3] = quantity;
+  }
   void setAttrStatus(ItemSlot itemSlot, ItemStatus itemStatus){
     attributeStatus[itemSlot][0] = itemStatus;
   }
@@ -65,11 +67,11 @@ class Status {
   }
 
   void setNeuralAttribute(String attribute){
-    attributeStatus[ItemSlot.NEURAL_CALIBRATOR][3] = attribute;
+    attributeStatus[ItemSlot.NEURAL_CALIBRATOR][4] = attribute;
   }
 
   void setCompanionColour(String colour){
-    attributeStatus[ItemSlot.DYE_INJECTOR][3] = colour;
+    attributeStatus[ItemSlot.DYE_INJECTOR][4] = colour;
   }
 
   void setItemImage(ItemSlot itemSlot, String newImagePath){
@@ -78,6 +80,15 @@ class Status {
 
   String getItemImagePath(ItemSlot itemSlot){
     return _itemImagePaths[itemSlot];
+  }
+
+  int getItemDose(ItemSlot itemSlot){
+    print(attributeStatus[itemSlot][1]);
+    return ((attributeStatus[itemSlot][3] * double.parse(attributeStatus[itemSlot][1].toString().replaceAll("%", "")))).toInt(); //TODO: Implement this properly
+  }
+
+  int getItemQuantity(ItemSlot itemSlot){
+    return attributeStatus[itemSlot][3];
   }
 
 

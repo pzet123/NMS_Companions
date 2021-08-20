@@ -1,1 +1,1 @@
-{"name":"'Legs-in-Pastry'","increasing":true,"dose":"100%"}
+{"name":"'Legs-in-Pastry'","increasing":true,"dose":"100%","maxStack":1}

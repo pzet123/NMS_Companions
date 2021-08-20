@@ -1,1 +1,1 @@
-{"name":"Cadmium","increasing":true,"dose":".9%"}
+{"name":"Cadmium","increasing":true,"dose":".9%","maxStack":110}

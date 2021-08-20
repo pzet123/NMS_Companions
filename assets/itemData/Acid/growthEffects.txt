@@ -1,1 +1,1 @@
-{"name":"Acid","increasing":false,"dose":"100%"}
+{"name":"Acid","increasing":false,"dose":"100%","maxStack":1}

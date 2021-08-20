@@ -1,1 +1,1 @@
-{"name":"Angelic Fruitcake","increasing":true,"dose":"34%"}
+{"name":"Angelic Fruitcake","increasing":true,"dose":"34%","maxStack":3}

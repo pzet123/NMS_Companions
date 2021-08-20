@@ -1,1 +1,1 @@
-{"name":"Geode","increasing":false,"dose":"25%"}
+{"name":"Geode","increasing":false,"dose":"25%","maxStack":4}

@@ -1,1 +1,1 @@
-{"name":"Anomalous Doughnut","increasing":false,"dose":"100%"}
+{"name":"Anomalous Doughnut","increasing":false,"dose":"100%","maxStack":1}
