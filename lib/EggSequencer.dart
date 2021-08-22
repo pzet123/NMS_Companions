@@ -255,7 +255,7 @@ class CatalystsItem extends StatelessWidget {
   final String itemName;
   final ItemSlot itemSlot;
   final String itemGraphicPath;
-  final int quantity;
+  int quantity;
   String doseText;
   final callBack;
   CatalystsItem(this.type, this.dose, this.quantity, this.itemName, this.itemGraphicPath, this.itemSlot, this.callBack);
@@ -264,12 +264,26 @@ class CatalystsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = InheritedItemData.of(context).textTheme;
     final itemStatus = InheritedItemData.of(context).status;
-    final int numericalDose = double.parse(dose).toInt();
-    if(numericalDose > 100){
+    final double numericalDose = double.parse(dose);
+    if(numericalDose > 100.0){
       doseText = "Overdosed! $dose% ";
+      quantity = 1;
     }
     else if(itemStatus.getItemDose(itemSlot) > 100){
-      doseText = "Dose: 100%";
+      if(itemSlot == ItemSlot.GENE_SPLITTER) {
+        if(itemStatus.getItemDose(itemSlot) < 150){
+          doseText = "Overdosed! " + itemStatus.getItemDose(itemSlot).toString() + "%";
+          quantity = (itemStatus.getItemDose(itemSlot) ~/ numericalDose) + 1;
+        }
+        else{
+          doseText = "Overdosed! 150%";
+          quantity = 150 ~/ numericalDose;
+        }
+      }
+      else {
+        doseText = "Dose: 100%";
+        quantity = 100 ~/ numericalDose;
+      }
     }
     else{
       doseText = "Dose: " + itemStatus.getItemDose(itemSlot).toString() + "%";

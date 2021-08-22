@@ -23,7 +23,7 @@ class ItemListTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         showDialog(context: context, builder: (context) {
-          return QuantityAlert(maxStack: 100, itemSlot: itemSlot,);
+          return QuantityAlert(maxStack: 255, itemSlot: itemSlot,);
         }).then((value) {
           if(value == true) {
             itemStatus.setAttrStatus(itemSlot, itemEffect);
@@ -91,6 +91,7 @@ class _QuantityAlertState extends State<QuantityAlert> {
           AlertDialog(
             title: Text("Select quantity"),
             content: Slider(
+              divisions: 254,
               value: sliderVal,
               label: "$sliderVal",
               activeColor: Colors.tealAccent,
@@ -109,7 +110,7 @@ class _QuantityAlertState extends State<QuantityAlert> {
                     itemStatus.setItemQuantity(widget.itemSlot, sliderVal.toInt());
                     Navigator.pop(context, true);
                   },
-                  child: Text("Confirm"))
+                  child: Text("Confirm")),
             ],
           ),
         ],
