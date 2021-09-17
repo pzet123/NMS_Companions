@@ -53,7 +53,7 @@ class _EggSequencerState extends State<EggSequencer> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Flexible(
-                    flex: 12,
+                    flex: 10,
                       child: GeneticInputRow()),
                   RowDivider(),
                   Flexible(
