@@ -1,1 +1,1 @@
-{"name":"Gold","increasing":true,"dose":"7.14%","maxStack":14}
+{"name":"Gold","increasing":true,"dose":"1.3%","maxStack":255}

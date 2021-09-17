@@ -1,1 +1,1 @@
-{"name":"Magnetised Ferrite","increasing":true,"dose":".3%","maxStack":313}
+{"name":"Magnetised Ferrite","increasing":true,"dose":"0.3%","maxStack":313}

@@ -31,8 +31,8 @@ void main() async {
                 headline1: TextStyle(
                     color: Color.fromARGB(255, 217, 241, 241),
                     fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                    letterSpacing: 1.5
+                    fontSize: 28,
+                    letterSpacing: 2.2
                 ),
                 headline2: TextStyle(
                     color: Color.fromARGB(255, 217, 241, 241),
@@ -47,7 +47,7 @@ void main() async {
                 ),
                 subtitle1: TextStyle(
                     color: Color.fromARGB(255, 217, 241, 241),
-                    fontSize: 11
+                    fontSize: 10
                 ),
                 subtitle2: TextStyle(
                     color: Color.fromARGB(255, 217, 241, 241),

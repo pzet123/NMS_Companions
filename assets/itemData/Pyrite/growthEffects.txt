@@ -1,0 +1,1 @@
+{"name":"Pyrite","increasing":false,"dose":"0.25%","maxStack":250}

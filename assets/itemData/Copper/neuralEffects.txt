@@ -1,1 +1,1 @@
-{"name":"Copper","neuralAttribute":"Helpfulness","dose":".5%"}
+{"name":"Copper","neuralAttribute":"Helpfulness","dose":"0.5%"}

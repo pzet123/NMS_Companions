@@ -1,1 +1,1 @@
-{"name":"Sodium","dose":".10%"}
+{"name":"Sodium","dose":"0.10%"}

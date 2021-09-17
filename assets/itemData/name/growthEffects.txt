@@ -1,0 +1,1 @@
+{"name":"name","increasing":true,"dose":"0.5%","maxStack":250}

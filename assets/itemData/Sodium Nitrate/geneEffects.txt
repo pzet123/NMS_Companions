@@ -1,0 +1,1 @@
+{"name":"Sodium Nitrate","dose":"0.3%","maxStack":250}

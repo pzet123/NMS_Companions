@@ -1,0 +1,1 @@
+{"name":"Chlorine","dose":"2%","maxStack":250}

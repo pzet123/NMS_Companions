@@ -1,0 +1,1 @@
+{"name":"Silver","dose":"0.75%","neuralAttribute":"Devotion","maxStack":250}

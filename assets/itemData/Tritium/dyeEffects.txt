@@ -1,0 +1,1 @@
+{"name":"Tritium","dose":"0.1%","colour":"Sickly Green, Mint Green","maxStack":250}

@@ -1,0 +1,1 @@
+{"name":"Paraffinium","increasing":false,"dose":"0.24%","maxStack":250}

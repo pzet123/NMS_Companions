@@ -1,1 +1,1 @@
-{"name":"Cadmium","neuralAttribute":"Independence","dose":".9%"}
+{"name":"Cadmium","neuralAttribute":"Independence","dose":"0.9%"}

@@ -1,0 +1,1 @@
+{"name":"Faecium","increasing":false,"dose":"0.12%","maxStack":250}

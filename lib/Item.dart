@@ -12,17 +12,14 @@ class Item extends StatelessWidget {
 
     final textTheme = InheritedItemData.of(context).textTheme;
     final double imageScale = 3.5 * (760 / MediaQuery.of(context).size.height);
-    return Padding(
-        padding: EdgeInsets.all(5),
-      child: GestureDetector(
-        child: Column(
-          children: [
-            Text(itemName, style: textTheme.subtitle1),
-            Image.asset(itemGraphicName, scale: imageScale,),
-          ],
-        ),
-        onTap: (callBack != null) ? () => openItemMenu(context, itemSlot) : null,
+    return GestureDetector(
+      child: Column(
+        children: [
+          Text(itemName, style: textTheme.subtitle1),
+          Image.asset(itemGraphicName, scale: imageScale,),
+        ],
       ),
+      onTap: (callBack != null) ? () => openItemMenu(context, itemSlot) : null,
     );
   }
 

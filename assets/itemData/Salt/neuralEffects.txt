@@ -1,0 +1,1 @@
+{"name":"Salt","dose":"1.17%","neuralAttribute":"Aggression","maxStack":250}

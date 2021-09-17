@@ -1,0 +1,1 @@
+{"name":"Chlorine","dose":"2.35%","colour":"Light Green, Dark Green, Gray","maxStack":250}

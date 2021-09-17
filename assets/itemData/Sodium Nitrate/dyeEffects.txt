@@ -1,0 +1,1 @@
+{"name":"Sodium Nitrate","dose":"1.3%","colour":"Brown, Light Brown","maxStack":250}

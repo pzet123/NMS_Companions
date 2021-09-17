@@ -1,0 +1,1 @@
+{"name":"Salt","dose":"4.7%","colour":"Light Yellow, Mint Green, Light Brown","maxStack":250}

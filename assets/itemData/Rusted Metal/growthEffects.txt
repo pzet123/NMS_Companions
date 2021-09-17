@@ -1,0 +1,1 @@
+{"name":"Rusted Metal","increasing":false,"dose":"0.08%","maxStack":250}

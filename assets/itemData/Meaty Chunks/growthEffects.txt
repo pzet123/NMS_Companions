@@ -1,0 +1,1 @@
+{"name":"Meaty Chunks","increasing":false,"dose":"1.7%","maxStack":250}

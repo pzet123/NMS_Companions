@@ -1,0 +1,1 @@
+{"name":"Silver","increasing":true,"dose":"0.75%","maxStack":250}

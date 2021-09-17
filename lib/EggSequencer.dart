@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:nmscompanions/Item.dart';
 import "stateWidget.dart";
 
@@ -56,7 +57,7 @@ class _EggSequencerState extends State<EggSequencer> {
                       child: GeneticInputRow()),
                   RowDivider(),
                   Flexible(
-                    flex: 17,
+                    flex: 16,
                     child: CatalystsRow(attributeStatus[ItemSlot.GROWTH_HORMONE][1],
                         attributeStatus[ItemSlot.GENE_SPLITTER][1],
                         attributeStatus[ItemSlot.DYE_INJECTOR][1],
@@ -65,7 +66,7 @@ class _EggSequencerState extends State<EggSequencer> {
                   ),
                   RowDivider(),
                   Flexible(
-                    flex: 10,
+                    flex: 13,
                     child: EmbryoStatusRow(attributeStatus[ItemSlot.GROWTH_HORMONE][0],
                         attributeStatus[ItemSlot.GENE_SPLITTER][0],
                         attributeStatus[ItemSlot.DYE_INJECTOR][0],
@@ -103,7 +104,7 @@ class _ColourRowState extends State<ColourRow> {
     return Column(
       children: [
         Text(
-          "Current Colouring: ", style: textTheme.headline1,),
+          "Current Colouring", style: textTheme.headline1,),
         SizedBox(height: 5,)
       ] + getColourWidgets(getColoursFromText(widget.colour)),
     );
@@ -236,7 +237,7 @@ class _CatalystsRowState extends State<CatalystsRow> {
         Text("Catalysts", style: textTheme.headline2,),
         SizedBox(height: 10,),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Flexible(child: CatalystsItem("Growth Hormone", widget.growthHormoneDose, itemStatus.getItemQuantity(ItemSlot.GROWTH_HORMONE), itemStatus.attributeStatus[ItemSlot.GROWTH_HORMONE][2], itemStatus.getItemImagePath(ItemSlot.GROWTH_HORMONE), ItemSlot.GROWTH_HORMONE, widget.callback)),
             Flexible(child: CatalystsItem("Gene Splitter", widget.geneSplitterDose, itemStatus.getItemQuantity(ItemSlot.GENE_SPLITTER), itemStatus.attributeStatus[ItemSlot.GENE_SPLITTER][2], itemStatus.getItemImagePath(ItemSlot.GENE_SPLITTER), ItemSlot.GENE_SPLITTER, widget.callback)),
@@ -321,7 +322,7 @@ class _EmbryoStatusRowState extends State<EmbryoStatusRow> {
         Text("Embryo Status", style: textTheme.headline2),
         SizedBox(height: 5,),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             EmbryoItem(widget.weightHeightStatus, "Weight / Height"),
             EmbryoItem(widget.anatomyStatus, "Anatomy"),
@@ -344,14 +345,24 @@ class EmbryoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double iconSize = 50 * (screenHeight / 760);
-    if(itemStatus == ItemStatus.INCREASING){
-      statusIcon = Icon(Icons.trending_up_rounded, color: Colors.greenAccent[400], size: iconSize,);
+    double screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
+    double iconSize = 65 * (screenHeight / 760);
+    if (itemStatus == ItemStatus.INCREASING) {
+      statusIcon = Icon(
+        Icons.trending_up_rounded, color: Colors.greenAccent[400],
+        size: iconSize,);
       status = "Increasing";
-    } else if(itemStatus == ItemStatus.DECREASING){
-      statusIcon = Icon(Icons.trending_down_rounded, color: Colors.red, size: iconSize,);
+    } else if (itemStatus == ItemStatus.DECREASING) {
+      statusIcon =
+          Icon(Icons.trending_down_rounded, color: Colors.red, size: iconSize,);
       status = "Decreasing";
+    } else if(itemStatus == ItemStatus.INHERITED){
+      statusIcon = Icon(
+        MaterialCommunityIcons.dna, color: Colors.blueGrey[600], size: iconSize,);
+      status = "Inherited";
     } else {
       statusIcon = Icon(Icons.multitrack_audio_rounded, color: Colors.blue[300], size: iconSize,);
       status = "Unstable";

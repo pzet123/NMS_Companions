@@ -1,0 +1,1 @@
+{"name":"Salt","dose":"1.1%","maxStack":250}

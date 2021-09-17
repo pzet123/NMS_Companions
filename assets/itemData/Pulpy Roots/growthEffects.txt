@@ -1,0 +1,1 @@
+{"name":"Pulpy Roots","increasing":false,"dose":"1.2%","maxStack":250}

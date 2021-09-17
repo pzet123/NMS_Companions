@@ -1,1 +1,1 @@
-{"name":"Pugneum","increasing":false,"dose":".5%","maxStack":186}
+{"name":"Pugneum","increasing":false,"dose":"0.5%","maxStack":186}
