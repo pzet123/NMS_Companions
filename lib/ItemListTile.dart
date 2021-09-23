@@ -12,9 +12,8 @@ class ItemListTile extends StatelessWidget {
   final String neuralAttribute;
   final String colour;
   final String imagePath;
-  final quantity;
 
-  ItemListTile({@required this.child, @required this.itemName, @required this.dose, @required this.itemSlot, @required this.itemEffect, @required this.imagePath, @required this.quantity, this.neuralAttribute, this.colour});
+  ItemListTile({@required this.child, @required this.itemName, @required this.dose, @required this.itemSlot, @required this.itemEffect, @required this.imagePath, this.neuralAttribute, this.colour});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,7 @@ class ItemListTile extends StatelessWidget {
               child: Image.asset(this.imagePath),
               flex: 3,
             ),
-            SizedBox(width: 5,),
+            SizedBox(width: 5),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,11 +84,16 @@ class _QuantityAlertState extends State<QuantityAlert> {
   @override
   Widget build(BuildContext context) {
     final itemStatus = InheritedItemData.of(context).status;
+    final textTheme = Theme.of(context).textTheme;
     return Center(
       child: Wrap(
         children: [
           AlertDialog(
-            title: Text("Select quantity"),
+/*            Colors.cyan[900],
+            Colors.teal[800],
+            Colors.cyan[800]*/
+            backgroundColor:  Colors.cyan[900],
+            title: Text("Select quantity", style: textTheme.headline4),
             content: Slider(
               divisions: 254,
               value: sliderVal,
@@ -110,7 +114,11 @@ class _QuantityAlertState extends State<QuantityAlert> {
                     itemStatus.setItemQuantity(widget.itemSlot, sliderVal.toInt());
                     Navigator.pop(context, true);
                   },
-                  child: Text("Confirm")),
+                  child: Text("Confirm", style: textTheme.headline3),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.cyan[800])
+                ),
+              ),
             ],
           ),
         ],

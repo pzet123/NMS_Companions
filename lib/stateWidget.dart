@@ -82,12 +82,17 @@ class Status {
   }
 
   int getItemDose(ItemSlot itemSlot){
-    print(attributeStatus[itemSlot][1]);
-    return (attributeStatus[itemSlot][3] * double.parse(attributeStatus[itemSlot][1].toString().replaceAll("%", ""))).toInt();
+    return (attributeStatus[itemSlot][3] * convertDoseToInt(attributeStatus[itemSlot][1])).toInt();
   }
 
   int getItemQuantity(ItemSlot itemSlot){
     return attributeStatus[itemSlot][3];
+  }
+
+  double convertDoseToInt(String dose){
+    String trimmedDose = dose.replaceAll("%", "");
+    double numericalDose = double.parse(trimmedDose);
+    return numericalDose;
   }
 
 
@@ -104,9 +109,9 @@ class ItemData{
   List<String> _neuralTableItemNames;
   ItemData() {
     _growthTableItemNames = ["Apple Cake of Lost Souls", "Apple Curiosity", "Legs-in-Pastry", "Abyssal Stew", "Acid", "Activated Cadmium", "Activated Copper", "Activated Emeril", "Activated Indium", "Albumen Pearl", "Aloe Flesh", "Ammonia", "Angelic Fruitcake", "Anomalous Doughnut", "Anomalous Jam", "Aronium", "Cadmium", "Caramel-Encrusted Cake", "Carbon", "Chlorine", "Chromatic Metal", "Cobalt", "Condensed Carbon", "Copper", "Crystal Sulphide", "Cyto-Phosphate", "Di-hydrogen", "Emeril", "Faecium", "Ferrite Dust", "Fungal Mould", "Fusion Accelerant", "Geode", "Gold", "Hexite", "Indium", "Ionised Cobalt", "Larval Core", "Living Pearl", "Magnetised Ferrite", "Magno-Gold", "Meaty Chunks", "Mordite", "NipNip Buds", "Oxygen", "Paraffinium", "Pugneum", "Pulpy Roots", "Pure Ferrite", "Pyrite", "Rusted Metal", "Salt", "Silver", "Sodium", "Soft Custard Fancy", "Storm Crystal", "Tritium", "Tritium Hypercluster", "Unstable Plasma"];
-    _geneTableItemNames = ["Apple Cake of Lost Souls", "Apple Curiosity", "Legs-in-Pastry", "Abyssal Stew", "Acid", "Activated Cadmium", "Activated Emeril", "Activated Indium", "Aloe Flesh", "Ammonia", "Angelic Fruitcake", "Anomalous Doughnut", "Anomalous Jam", "Aronium", "Caramel-Encrusted Cake", "Carbon", "Chlorine", "Geode", "Faecium", "Fusion Accelerant", "Gold", "Storm Crystal", "Ionised Cobalt", "Sodium", "Magnetised Ferrite", "Di-hydrogen", "Larval Core", "Oxygen", "Condensed Carbon", "Unstable Plasma", "Fungal Mould", "Soft Custard Fancy", "Hexite", "Chromatic Metal", "Salt", "Silver", "Sodium Nitrate", "Tritium"];
+    _geneTableItemNames = ["Apple Cake of Lost Souls", "Apple Curiosity", "Abyssal Stew", "Acid", "Activated Cadmium", "Activated Emeril", "Activated Indium", "Aloe Flesh", "Ammonia", "Angelic Fruitcake", "Anomalous Doughnut", "Anomalous Jam", "Aronium", "Caramel-Encrusted Cake", "Carbon", "Chlorine", "Chromatic Metal", "Condensed Carbon", "Di-hydrogen", "Faecium",  "Fungal Mould", "Fusion Accelerant", "Geode", "Gold", "Hexite", "Ionised Cobalt", "Larval Core", "Legs-in-Pastry", "Magnetised Ferrite",  "Oxygen", "Salt", "Silver", "Sodium", "Soft Custard Fancy", "Storm Crystal", "Sodium Nitrate", "Tritium", "Unstable Plasma",];
     _dyeTableItemNames = ["Apple Cake of Lost Souls", "Apple Curiosity", "Legs-in-Pastry", "Abyssal Stew", "Acid", "Activated Cadmium", "Activated Emeril", "Activated Indium", "Aloe Flesh", "Ammonia", "Angelic Fruitcake", "Anomalous Doughnut", "Anomalous Jam", "Anomalous Tart", "Aronium", "Bromide Salt", "Carbon", "Chlorine", "Condensed Carbon", "Enriched Carbon", "Caramel-Encrusted Cake", "Chromatic Metal", "Crystal Sulphide", "Di-hydrogen", "Emeril", "Faecium", "Fireberry", "Frozen Tubers", "Fungal Mould", "Fusion Accelerant", "Geode", "Geodesite", "Grahberry", "Grantine", "Gravitino Ball", "Hadal Core", "Herox", "Hexaberry", "Hexite", "Hot Ice", "Hypnotic Eye", "Ionised Cobalt", "Iridesite", "Jade Peas", "Larval Core", "Leopard-Fruit", "Lemmium", "Living Pearl", "Lubricant", "Magnetised Ferrite", "Magno-Gold", "Nitrogen Salt", "Ohmic Gel", "Optical Solvent", "Organic Catalyst", "Oxygen", "Re-latticed Arc Crystal", "Sac Venom", "Salt", "Semiconductor", "Sodium Nitrate", "Tank of Coolant", "Thermic Condensate", "Tritium", "Sodium", "Soft Custard Fancy", "Storm Crystal", "Unrefined Pyrite Grease", "Unstable Gel", "Unstable Plasma", "Welding Soap"];
-    _neuralTableItemNames = ["Apple Curiosity", "Activated Emeril", "Activated Indium", "Aloe Flesh", "Ammonia", "Aronium", "Chlorine", "Storm Crystal", "Larval Core", "Hexite", "Indium", "Pugneum", "GekNip", "Apple Cake of Lost Souls", "Legs-in-Pastry", "Abyssal Stew", "Angelic Fruitcake", "Activated Cadmium", "Activated Copper", "Cadmium", "Emeril", "Faecium", "Gold", "Sodium", "Di-hydrogen", "Fusion Accelerant", "Ionised Cobalt", "Soft Custard Fancy", "Caramel-Encrusted Cake", "Gold", "Acid", "Anomalous Doughnut", "Anomalous Jam", "Carbon", "Copper", "Geode", "Lemmium", "Magnetised Ferrite", "Oxygen", "Condensed Carbon", "Unstable Plasma", "Fungal Mould", "Chromatic Metal", "Salt", "Silver", "Sodium Nitrate", "Tritium"];
+    _neuralTableItemNames = ["Apple Cake of Lost Souls", "Apple Curiosity", "Abyssal Stew", "Angelic Fruitcake", "Anomalous Doughnut", "Anomalous Jam", "Acid", "Activated Emeril", "Activated Indium", "Aloe Flesh", "Activated Cadmium", "Activated Copper",  "Ammonia", "Aronium", "Cadmium","Carbon", "Condensed Carbon", "Caramel-Encrusted Cake", "Chlorine", "Chromatic Metal",  "Copper", "Di-hydrogen","Emeril", "Faecium", "Fungal Mould", "Fusion Accelerant", "GekNip", "Geode", "Gold",  "Hexite", "Indium","Ionised Cobalt", "Larval Core", "Legs-in-Pastry", "Lemmium", "Magnetised Ferrite", "Oxygen", "Pugneum",  "Salt", "Silver",  "Sodium", "Soft Custard Fancy", "Sodium Nitrate", "Storm Crystal", "Tritium", "Unstable Plasma"];
 
   }
 
@@ -124,7 +129,6 @@ class ItemData{
       String itemImagePath = "assets/itemData/$itemName/image.png";
       String growthEffectsFile = await rootBundle.loadString("assets/itemData/$itemName/growthEffects.txt");
       Map growthEffectsMap = jsonDecode(growthEffectsFile);
-      print(growthEffectsMap["name"]);
       growthEffectsMap["imagePath"] = itemImagePath;
       growthTable.add(growthEffectsMap);
       }

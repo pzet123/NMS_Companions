@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import "package:flutter/services.dart";
 import 'package:nmscompanions/stateWidget.dart';
 
 class GuideScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
@@ -95,6 +97,7 @@ class GuideText extends StatelessWidget {
 class GuideEntryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     Map entryData = ModalRoute.of(context).settings.arguments;
     final textTheme = InheritedItemData.of(context).textTheme;
     return Scaffold(

@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import "package:flutter/services.dart";
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_icons/flutter_icons.dart';
@@ -14,6 +14,7 @@ class EggSequencer extends StatefulWidget {
 class _EggSequencerState extends State<EggSequencer> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     final attributeStatus = InheritedItemData.of(context).status.attributeStatus;
     final itemData = InheritedItemData.of(context).itemData;
     final textTheme = InheritedItemData.of(context).textTheme;
@@ -206,7 +207,7 @@ class GeneticInputRow extends StatelessWidget {
     return Column(
       children: [
         Text("Genetic Input", style: textTheme.headline2),
-        Item("Companion Egg", "assets/CompanionEgg.png", ItemSlot.COMPANION_EGG, null), //TODO: Change this image to an actual companion egg image
+        Item("Companion Egg", "assets/CompanionEgg.png", ItemSlot.COMPANION_EGG, null),
       ],
     );
   }

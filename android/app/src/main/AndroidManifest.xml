@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pzet.nmscompanions">
    <application
-        android:label="nmscompanions"
-        android:icon="@mipmap/ic_launcher">
+        android:label="NMSC"
+        android:icon="@mipmap/nmscicon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

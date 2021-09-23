@@ -1,1 +1,1 @@
-{"name":"Magno-Gold","increasing":false,"dose":"39","maxStack":250}
+{"name":"Magno-Gold","increasing":false,"dose":"39%","maxStack":250}
