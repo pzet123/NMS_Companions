@@ -1,1 +1,1 @@
-{"name":"Condensed Carbon","dose":"0.48%","colour":"Gray, Red/Gray/No Color"}
+{"name":"Condensed Carbon","dose":"0.48%","colour":"Gray, Red, Sickly Green"}

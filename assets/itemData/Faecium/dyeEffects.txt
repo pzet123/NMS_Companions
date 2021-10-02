@@ -1,1 +1,1 @@
-{"name":"Faecium","dose":"0.48%","colour":"Brown, Green","maxStack":250}
+{"name":"Faecium","dose":"0.48%","colour":"Brown, Light Green","maxStack":250}

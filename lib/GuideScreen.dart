@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import "package:flutter/services.dart";
 import 'package:nmscompanions/stateWidget.dart';
+import 'package:nmscompanions/BackgroundDecoration.dart';
 
 class GuideScreen extends StatelessWidget {
   @override
@@ -15,13 +16,7 @@ class GuideScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: AlignmentDirectional.topCenter,
-                end: AlignmentDirectional.bottomCenter,
-                colors: [Colors.cyan[900], Colors.teal[800], Colors.cyan[800]]
-            )
-        ),
+        decoration: BackgroundDecoration,
         child: Column(
           children: [
             GuideEntryListTile(iconData: MaterialCommunityIcons.egg, title: "Attaining a Companion Egg", content: AttainingEggEntry()),
@@ -137,8 +132,8 @@ class CompanionColouringEntry extends StatelessWidget {
     GuideReferenceImage(text: "A Rhopalocera variant", imageLocation: "assets/guideReferenceImages/butterfly.png",),
     GuideText("Group four covers the Mechanoceris genus which includes all of the robotic creatures found in uncharted systems: "),
     GuideReferenceImage(text: "Robotic antelope", imageLocation: "assets/guideReferenceImages/robotAntelope.png",),
-    GuideText("From what is currently known, the dosage of the item used in the dye injector will determine how much of the offspring will be covered in the new colour and how much will be inherited."),
-    GuideText("The guide currently only covers the first colour group as this is accounts for the vast majority of creatures however the option to select different colour groups will be added soon")
+    GuideText("The dosage of the item used in the dye injector represents the chance of the colour being applied to the offspring"),
+    GuideText("The guide currently only covers the first colour group as this is accounts for the vast majority of creatures however the option to select different colour groups will be added in the future as more information is uncovered.")
     ];
     return GuideEntryShell(children);
   }

@@ -1,1 +1,1 @@
-{"name":"Di-hydrogen","dose":"0.68%","colour":"Gray, Gray/Red"}
+{"name":"Di-hydrogen","dose":"0.68%","colour":"Gray, Brown, Cream"}

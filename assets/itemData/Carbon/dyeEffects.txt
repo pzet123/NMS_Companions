@@ -1,1 +1,1 @@
-{"name":"Carbon","dose":"0.24%","colour":"Red, Red/Blue"}
+{"name":"Carbon","dose":"0.24%","colour":"Red, Dark Blue"}

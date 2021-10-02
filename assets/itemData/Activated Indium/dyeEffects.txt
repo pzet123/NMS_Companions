@@ -1,1 +1,1 @@
-{"name":"Activated Indium","dose":"16.66%","colour":"Dull Orange, Dull Orange/Golden Orange"}
+{"name":"Activated Indium","dose":"16.66%","colour":"Medium Cream, Light Brown, Light Green"}

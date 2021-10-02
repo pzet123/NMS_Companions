@@ -4,6 +4,7 @@ import 'ItemMenu.dart';
 import "stateWidget.dart";
 import 'package:web_scraper/web_scraper.dart';
 import 'GuideScreen.dart';
+import 'SettingsScreen.dart';
 
 void main() async {
 
@@ -20,6 +21,7 @@ void main() async {
           "/ItemMenu": (context) => ItemMenu(),
           "/GuideScreen" : (context) => GuideScreen(),
           "/GuideEntry" : (context) => GuideEntryScreen(),
+          "/SettingsScreen" : (context) => SettingsScreen(),
           "/Donation": (context) => null
         },
         initialRoute: "/",

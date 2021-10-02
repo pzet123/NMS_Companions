@@ -5,6 +5,7 @@ import "package:flutter/material.dart";
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:nmscompanions/Item.dart';
 import "stateWidget.dart";
+import 'package:nmscompanions/BackgroundDecoration.dart';
 
 class EggSequencer extends StatefulWidget {
   @override
@@ -26,7 +27,6 @@ class _EggSequencerState extends State<EggSequencer> {
             appBar: AppBar(
                 title: Text("Egg Sequencer", style: textTheme.headline1,),
                 centerTitle: true,
-                backgroundColor: Colors.cyan[900],
                 elevation: 5,
                 leading: IconButton(
                     icon: Icon(Icons.help_rounded),
@@ -34,22 +34,15 @@ class _EggSequencerState extends State<EggSequencer> {
                     {
                       Navigator.pushNamed(context, "/GuideScreen")
                     }
-                )
+                ),
+              actions: [
+                IconButton(icon: Icon(Icons.settings), onPressed: () => Navigator.pushNamed(context, "/SettingsScreen"))
+              ],
             ),
 
             body: Container(
               padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: AlignmentDirectional.topCenter,
-                      end: AlignmentDirectional.bottomCenter,
-                      colors: [
-                        Colors.cyan[900],
-                        Colors.teal[800],
-                        Colors.cyan[800]
-                      ]
-                  )
-              ),
+              decoration: BackgroundDecoration,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -82,7 +75,7 @@ class _EggSequencerState extends State<EggSequencer> {
               ),
             ),
           );
-        } else return CircularProgressIndicator(
+        } else return CircularProgressIndicator( //TODO: Make loading screen look acceptable.
           backgroundColor: Colors.teal[800],
         );
       }
@@ -118,14 +111,14 @@ class _ColourRowState extends State<ColourRow> {
       "Black": Colors.black,
       "White": Colors.white,
       "Red": Colors.red,
-      "Mint" : Colors.cyan[100],
+      "Mint" : Colors.green[200],
       "Dark Gray" : Colors.grey[700],
-      "Sickly Green" : Colors.lightGreen,
+      "Sickly Green" : Colors.lime[800],
       "Medium Cream" : Colors.orange[100],
       "Dull Orange" : Colors.orange[300],
       "Golden Orange" : Colors.orange[400],
       "Light Lavender" : Colors.purple[100],
-      "Light Green" : Colors.green[200],
+      "Light Green" : Colors.lightGreen[400],
       "Leaf Green" : Colors.green[700],
       "Burnt Orange" : Colors.deepOrange,
       "Dark Green" : Colors.green[900],
@@ -135,19 +128,20 @@ class _ColourRowState extends State<ColourRow> {
       "Pale Yellow" : Colors.yellow[300],
       "Gray" : Colors.grey,
       "Blue" : Colors.blue,
+      "Dark Blue" : Colors.blue[800],
       "Bright Dull Yellow" : Colors.yellowAccent,
-      "Cream" : Colors.yellowAccent[100],
+      "Cream" : Colors.amber[100],
       "Purple" : Colors.purple,
       "Bright Yellow" : Colors.yellow[300],
       "Lavender" : Colors.purple[200],
       "Light Orange" : Colors.orange[200],
       "Blue Green" : Colors.teal[400],
-      "Light Blue" : Colors.lightBlue[400],
+      "Light Blue" : Colors.lightBlue[200],
       "Near White" : Colors.grey[100],
       "Burgundy" : Colors.red[900],
-      "Mint Green" : Colors.green[200],
+      "Mint Green" : Colors.green[300],
       "Dark Yellow" : Colors.yellow[700],
-      "Lime Green" : Colors.lightGreen[300],
+      "Lime Green" : Colors.limeAccent,
       "Dark Tan" : Colors.brown[500],
       "Auburn" : Colors.redAccent[700],
       "Brick Red" : Colors.red[800],

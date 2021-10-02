@@ -1,1 +1,1 @@
-{"name":"Activated Emeril","dose":"12.5%","colour":"Dark Gray, Dark Gray/Light Gray/Red/Light Green"}
+{"name":"Activated Emeril","dose":"12.5%","colour":"Dark Gray, Dark Gray/Light Gray/Light Green"}

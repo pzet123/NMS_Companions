@@ -1,1 +1,1 @@
-{"name":"Ammonia","dose":"1.25%","colour":"Light Green, Light Green/Dark Green/Light Brown"}
+{"name":"Ammonia","dose":"1.25%","colour":"Light Green, Dark Green, Light Brown"}

@@ -1,1 +1,1 @@
-{"name":"Fungal Mould","dose":"0.32%","colour":"Bright Yellow, Bright Yellow/White/Red"}
+{"name":"Fungal Mould","dose":"0.32%","colour":"Bright Yellow, Brown, Cream"}
