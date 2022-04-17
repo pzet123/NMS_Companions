@@ -14,6 +14,7 @@ class GuideScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Guide", style: textTheme.headline1,),
         centerTitle: true,
+          backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Container(
         decoration: BackgroundDecoration,
@@ -42,8 +43,15 @@ class GuideEntryListTile extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, "/GuideEntry", arguments: {"title" : title, "body" : content}),
       child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.cyan[800],
+          boxShadow: [BoxShadow(
+            color: Colors.cyan[300],
+              blurRadius: 2.0
+          )]
+        ),
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
-        color: Colors.cyan[800],
         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         child: Row(
           children: [
@@ -79,12 +87,16 @@ class GuideText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = InheritedItemData.of(context).textTheme;
-    return Card(
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.cyan[800],
+      ),
         child: Padding(
-          padding: const EdgeInsets.all(4.0),
+          padding: const EdgeInsets.all(10.0),
           child: Text(text, style: textTheme.headline3),
         ),
-        color: Colors.cyan[800],);
+    );
   }
 }
 
@@ -99,6 +111,7 @@ class GuideEntryScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(entryData["title"], style: textTheme.headline3,),
           centerTitle: true,
+            backgroundColor: Theme.of(context).primaryColor,
         ),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -118,6 +131,20 @@ class GuideEntryScreen extends StatelessWidget {
     );
   }
 }
+
+class GuideImage extends StatelessWidget {
+  String imageLocation;
+  GuideImage(this.imageLocation);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10.0),
+      child: Image.asset(imageLocation),
+    );
+  }
+}
+
 
 class CompanionColouringEntry extends StatelessWidget {
   @override
@@ -146,7 +173,7 @@ class CompanionAccessoriesEntry extends StatelessWidget {
       GuideText("Most companions can be outfitted with one or more accessories. Accessories are currently purely cosmetic which the exception of the torch which is used to provide light"),
       GuideText("Some accessories like the laser give the impression of having a function as it will be used by the companion however it does not provide your companion with any abilities that it doesn't already have as creatures are already able to harvest resources and attack without a laser"),
       GuideText("The type of accessories that a creature can be adorned with will depend on its anatomy. For example, only a creature which has accessory slots on its side can equip the laser"),
-      Image.asset("assets/guideReferenceImages/accessoryList.png"),
+      GuideImage("assets/guideReferenceImages/accessoryList.png"),
       GuideText("The last three accessories are locked by default, they can be unlocked at the quicksilver shop within the anomaly for 1600 quicksilver each")
     ];
     return GuideEntryShell(children);
@@ -161,13 +188,13 @@ class GesturesEntry extends StatelessWidget {
       GuideText("Your companions ability to respond to commands will depend on their helpfulness/playfulness"),
       GuideText("Using the 'Need Resources' gesture will cause your companion to start digging up resources or scanning for them. Note that only companions with the laser accessory equipped can mine resources"),
       GuideReferenceImage(imageLocation: "assets/guideReferenceImages/needResourcesGesture.png", text: "Need Resources Gesture"),
-      Image.asset("assets/guideReferenceImages/companionResource.png"),
+      GuideImage("assets/guideReferenceImages/companionResource.png"),
       GuideText("If your companion harvests a resource, they will drop it in the form of a gift:"),
       GuideReferenceImage(imageLocation: "assets/guideReferenceImages/harvestedGift.png", text: "Harvested Gift"),
       GuideText("Pointing will lead to your companion heading in the direction which the player is facing. Pointing at creatures or sentinels can lead to your companion attacking them depending on their aggression."),
       GuideReferenceImage(imageLocation: "assets/guideReferenceImages/pointGesture.png", text: "Point Gesture"),
       GuideText("Sitting down will cause your companion to activate their resting animation"),
-      Image.asset("assets/guideReferenceImages/sitGesture.png"),
+      GuideImage("assets/guideReferenceImages/sitGesture.png"),
       GuideText("Using the Come Here gesture will cause your companion to return to your current location. This can be useful if you want to interact with them."),
       GuideReferenceImage(imageLocation: "assets/guideReferenceImages/comeHereGesture.png", text: "Come Here Gesture"),
       GuideText("Each gesture can be accessed from the quick menu. The point and come here gestures can be accessed from within the companion sub-menu while all of them can be accessed from within the gestures sub-menu."),
@@ -187,7 +214,7 @@ class AttainingEggEntry extends StatelessWidget {
           "\n-The companion has not laid an egg in the past 24 hours"
           "\n-The companion is old enough"
           "\n-Your character owns fewer than 6 eggs"),
-      Image.asset("assets/guideReferenceImages/Inducing_egg.png"),
+      GuideImage("assets/guideReferenceImages/Inducing_egg.png"),
       GuideText("Once you select induce egg, your companion will lay an egg which you can pick up by interacting with it."),
       GuideReferenceImage(imageLocation: "assets/guideReferenceImages/viable_egg.png", text: "Companion Egg",)
     ];
@@ -202,8 +229,8 @@ class NeuralAttributesEntry extends StatelessWidget {
       GuideText("Companions have three different neural aspects, each of which takes on one of two different attributes and is given a percentage as a rating"),
       GuideText("-Gentleness/Aggression\n-Independence/Devotion\n-Helpfulness/Playfulness"),
       GuideText("The first one of each of these sets of attributes is generally considered desirable however it is ultimately up to personal preference"),
-      Image.asset("assets/guideReferenceImages/neuralAttributes1.png"),
-      Image.asset("assets/guideReferenceImages/neuralAttributes2.png"),
+      GuideImage("assets/guideReferenceImages/neuralAttributes1.png"),
+      GuideImage("assets/guideReferenceImages/neuralAttributes2.png"),
       GuideText("Gentleness will make the creature more docile. Decreasing this will cause the creature to become more aggressive. An aggressive companion will attack other creatures more often which can reduce how often you have to feed them however it can also stop them from carrying out useful tasks like gathering resources"),
       GuideText("Independence controls how often your companion requires attention from you. devotion increases it while independence decreases it. Independence will also increase the radius of which the creature will listen to commands."),
       GuideText("Helpfulness determines how often companions will help you using their abilities. Increasing it will make them help more often while decreasing it will make them less likely to listen. Playfulness determines how often a creature carries out a playful action such as an animation. A creature with full playfulness will not help at all."),
@@ -224,7 +251,7 @@ class GuideReferenceImage extends StatelessWidget {
     final textTheme = InheritedItemData.of(context).textTheme;
     return Row(
       children: [
-        Flexible(child: Image.asset(imageLocation), flex: 1,),
+        Flexible(child: GuideImage(imageLocation), flex: 1,),
         SizedBox(width: 5,),
         Flexible(child: Text(text, style: textTheme.headline2,), flex: 1,)
       ],

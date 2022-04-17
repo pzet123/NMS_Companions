@@ -1,1 +1,1 @@
-{"name":"Anomalous Doughnut","dose":"100%","colour":"Sickly Green, Sickly Green/White/Cream/Purple/"}
+{"name":"Anomalous Doughnut","dose":"100%","colour":"Green, White, Cream"}

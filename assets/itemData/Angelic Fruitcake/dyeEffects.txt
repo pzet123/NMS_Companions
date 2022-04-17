@@ -1,1 +1,1 @@
-{"name":"Angelic Fruitcake","dose":"100%","colour":"Pale Blue, Pale Blue/Pale Red/Burnt Orange/Yellow"}
+{"name":"Angelic Fruitcake","dose":"100%","colour":"Pale Blue, Burnt Orange, Pale Red"}

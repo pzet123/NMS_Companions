@@ -1,1 +1,1 @@
-{"name":"Abyssal Stew","dose":"100%","colour":"Black, Black/Sickly Green/Yellow"}
+{"name":"Abyssal Stew","dose":"100%","colour":"Dark Gray, Light Green, Light Brown"}

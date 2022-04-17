@@ -1,1 +1,1 @@
-{"name":"Anomalous Tart","dose":"100%","colour":"Pale Yellow, Gray"}
+{"name":"Anomalous Tart","dose":"100%","colour":"Light Blue, Pale Yellow, Gray"}

@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:nmscompanions/CreditsScreen.dart';
 import 'package:nmscompanions/EggSequencer.dart';
 import 'ItemMenu.dart';
 import "stateWidget.dart";
@@ -22,6 +23,7 @@ void main() async {
           "/GuideScreen" : (context) => GuideScreen(),
           "/GuideEntry" : (context) => GuideEntryScreen(),
           "/SettingsScreen" : (context) => SettingsScreen(),
+          "/CreditsScreen" : (context) => CreditsScreen(),
           "/Donation": (context) => null
         },
         initialRoute: "/",

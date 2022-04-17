@@ -19,6 +19,7 @@ class ItemMenu extends StatelessWidget {
       appBar: AppBar(
         title: Text("Item Menu", style: textTheme.headline2),
         centerTitle: true,
+          backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Container(
         color: Colors.teal[900],

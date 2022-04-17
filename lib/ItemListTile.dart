@@ -40,7 +40,16 @@ class ItemListTile extends StatelessWidget {
         });
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 6),
+        margin: EdgeInsets.symmetric(vertical: 4, horizontal: 3),
+        padding: EdgeInsets.symmetric(vertical: 4, horizontal: 3),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Theme.of(context).primaryColor,
+          boxShadow: [BoxShadow(
+            color: Colors.cyan,
+            blurRadius: 2.0
+          )]
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [

@@ -1,1 +1,1 @@
-{"name":"'Apple' Curiosity","dose":"100%","colour":"Dull Green, Dull Green/White/Black/Gray"}
+{"name":"'Apple' Curiosity","dose":"100%","colour":"Gray, Light Blue, Sickly Green"}

@@ -1,1 +1,1 @@
-{"name":"Caramel-Encrusted Cake","dose":"100%","colour":"Brown, Brown/White"}
+{"name":"Caramel-Encrusted Cake","dose":"100%","colour":"Brown, Dull Cream, Sickly Green"}

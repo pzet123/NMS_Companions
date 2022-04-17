@@ -1,4 +1,3 @@
-import 'dart:io';
 import "package:flutter/services.dart";
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
@@ -28,6 +27,7 @@ class _EggSequencerState extends State<EggSequencer> {
                 title: Text("Egg Sequencer", style: textTheme.headline1,),
                 centerTitle: true,
                 elevation: 5,
+                backgroundColor: Theme.of(context).primaryColor,
                 leading: IconButton(
                     icon: Icon(Icons.help_rounded),
                     onPressed: () =>
@@ -44,7 +44,7 @@ class _EggSequencerState extends State<EggSequencer> {
               padding: EdgeInsets.all(10),
               decoration: BackgroundDecoration,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Flexible(
                     flex: 10,
@@ -68,6 +68,9 @@ class _EggSequencerState extends State<EggSequencer> {
                         attributeStatus[ItemSlot.NEURAL_CALIBRATOR][4]),
                   ),
                   RowDivider(),
+                  Text(
+                    "Current Colouring", style: textTheme.headline1,),
+                  SizedBox(height: 5),
                   Flexible(
                     flex: 10,
                       child: ColourRow(attributeStatus[ItemSlot.DYE_INJECTOR][4]))
@@ -95,12 +98,12 @@ class _ColourRowState extends State<ColourRow> {
   @override
   Widget build(BuildContext context) {
     final textTheme = InheritedItemData.of(context).textTheme;
-    return Column(
-      children: [
-        Text(
-          "Current Colouring", style: textTheme.headline1,),
-        SizedBox(height: 5,)
-      ] + getColourWidgets(getColoursFromText(widget.colour)),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10.0),
+      child: Column(
+        children: <Widget>[
+        ] + getColourWidgets(getColoursFromText(widget.colour)),
+      ),
     );
   }
 
@@ -114,16 +117,16 @@ class _ColourRowState extends State<ColourRow> {
       "Mint" : Colors.green[200],
       "Dark Gray" : Colors.grey[700],
       "Sickly Green" : Colors.lime[800],
-      "Medium Cream" : Colors.orange[100],
+      "Medium Cream" : Colors.orangeAccent[100],
       "Dull Orange" : Colors.orange[300],
       "Golden Orange" : Colors.orange[400],
       "Light Lavender" : Colors.purple[100],
       "Light Green" : Colors.lightGreen[400],
       "Leaf Green" : Colors.green[700],
-      "Burnt Orange" : Colors.deepOrange,
+      "Burnt Orange" : Colors.orange[900],
       "Dark Green" : Colors.green[900],
       "Light Brown" : Colors.brown[300],
-      "Pale Blue" : Colors.lightBlue,
+      "Pale Blue" : Colors.lightBlue[100],
       "Yellow" : Colors.yellow,
       "Pale Yellow" : Colors.yellow[300],
       "Gray" : Colors.grey,
@@ -153,10 +156,10 @@ class _ColourRowState extends State<ColourRow> {
       "Cyan" : Colors.cyan,
       "Light Gray" : Colors.grey[400],
       "Dull Green" : Colors.green[900],
-      "Pale Red" : Colors.redAccent,
+      "Pale Red" : Colors.redAccent[100],
       "Green" : Colors.green,
       "Light Yellow" : Colors.yellow[300],
-      "Dull Cream" : Colors.brown[200],
+      "Dull Cream" : Colors.orange[100],
       "Deep Red" : Colors.redAccent[700],
       "Sicky Green" : Colors.lime,
       "Bright Orange" : Colors.orange[300],
@@ -201,7 +204,8 @@ class GeneticInputRow extends StatelessWidget {
     return Column(
       children: [
         Text("Genetic Input", style: textTheme.headline2),
-        Item("Companion Egg", "assets/CompanionEgg.png", ItemSlot.COMPANION_EGG, null),
+        Image.asset("assets/CompanionEgg.png", scale: 3.5 * (760 / MediaQuery.of(context).size.height),),
+        //Item(null, "assets/CompanionEgg.png", ItemSlot.COMPANION_EGG, null),
       ],
     );
   }
@@ -381,7 +385,7 @@ class RowDivider extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 25 * (screenHeight / 760)),
       child: Divider(
-        height: 20 * (screenHeight / 760),
+        height: 10 * (screenHeight / 760),
         thickness: 3 * (screenHeight / 760),
         color: Colors.blueGrey[600]
       ),

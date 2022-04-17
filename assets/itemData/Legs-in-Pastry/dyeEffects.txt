@@ -1,1 +1,1 @@
-{"name":"'Legs-in-Pastry'","dose":"100%","colour":"Light Gray, Light Gray/Dark Gray/Medium Cream"}
+{"name":"'Legs-in-Pastry'","dose":"100%","colour":"Light Gray, Pale Yellow, Light Blue"}

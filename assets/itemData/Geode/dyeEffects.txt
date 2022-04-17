@@ -1,1 +1,1 @@
-{"name":"Geode","dose":"25%","colour":"Dull Cream, Dull Cream/Light Green/Deep Red/Light Orange"}
+{"name":"Geode","dose":"25%","colour":"Dull Cream, Light Green, Light Orange"}

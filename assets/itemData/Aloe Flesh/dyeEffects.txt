@@ -1,1 +1,1 @@
-{"name":"Aloe Flesh","dose":"6.25%","colour":"Light Lavender, Light Lavender/Leaf Green/Burnt Orange"}
+{"name":"Aloe Flesh","dose":"6.25%","colour":"Light Blue, Leaf Green, Burnt Orange"}
